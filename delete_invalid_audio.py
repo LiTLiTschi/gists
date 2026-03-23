@@ -2,17 +2,19 @@
 """
 Delete audio files (mp3, m4a, etc.) whose stem does not follow the naming rule:
   - The segment immediately before the file extension must be purely numeric.
-  - There must also be at least one non-empty segment BEFORE that number
-    (i.e. the file needs an actual name, not just a bare number).
+  - It must contain at least 7 digits (matches modern SoundCloud track ID length).
+  - There must be at least one non-whitespace, non-dot character before that number.
 
-Valid:   My beautiful song....12451246.mp3      -> stem ends in .<digits>, has name before it
-         Coooamo.1514651.mp3
-         oaoaoa.123.36135615.mp3
-         THE END OF ...1111111 ALL.134714714.m4a
+Valid:   My beautiful song....12451246.mp3      (8 digits)
+         Coooamo.1514651.mp3                    (7 digits)
+         oaoaoa.123.36135615.mp3                (8 digits)
+         THE END OF ...1111111 ALL.134714714.m4a (9 digits)
 
-Invalid: ahuh11235.mp3                          -> no dot before digits at end
-         oaoaoa.123.mp3                         -> only one segment (the number), nothing before it
-         THE END OF ...1111111 ALL.mp3          -> no numeric segment before extension
+Invalid: ahuh11235.mp3                          (no dot before digits)
+         oaoaoa.123.mp3                         (only 3 digits)
+         THE END OF ...1111111 ALL.mp3          (no numeric segment)
+         .3613613.mp3                           (nothing before the number)
+         Coooamo.123.mp3                        (only 3 digits)
 """
 
 import os
@@ -23,15 +25,15 @@ import argparse
 AUDIO_EXTENSIONS = {".mp3", ".m4a", ".flac", ".wav", ".aac", ".ogg"}
 
 # Stem must have:
-#   - at least one character of "name" content before the final dot-number
-#   - a dot separating name from the numeric tag
-#   - one or more digits as the last dot-segment
-# Pattern: anything (non-empty, at least one char) + dot + digits_only at end
-VALID_PATTERN = re.compile(r".+\.(\d+)$")
+#   - at least one non-whitespace, non-dot character (actual name content)
+#   - followed by a dot
+#   - followed by at least 7 digits as the final segment
+MIN_DIGITS = 7
+VALID_PATTERN = re.compile(rf".*[^\s.].+\.(\ d{{{MIN_DIGITS},}})$".replace("\ ", ""))
 
 
 def is_valid_filename(stem: str) -> bool:
-    """Return True if the stem has content before a trailing dot-number segment."""
+    """Return True if the stem has name content before a trailing dot-number (>=7 digits)."""
     return bool(VALID_PATTERN.match(stem))
 
 
@@ -72,7 +74,7 @@ def scan_and_delete(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Delete audio files that don't end their stem with a numeric segment preceded by actual name content."
+        description="Delete audio files missing a valid numeric ID segment before the extension."
     )
     parser.add_argument(
         "directory",
@@ -91,6 +93,13 @@ def main() -> None:
         help="Only scan the top-level directory, not subdirectories",
     )
     parser.add_argument(
+        "--min-digits",
+        type=int,
+        default=MIN_DIGITS,
+        metavar="N",
+        help=f"Minimum number of digits required in the ID segment (default: {MIN_DIGITS})",
+    )
+    parser.add_argument(
         "--ext",
         nargs="+",
         default=None,
@@ -104,6 +113,15 @@ def main() -> None:
         if args.ext
         else AUDIO_EXTENSIONS
     )
+
+    pattern = re.compile(rf".*[^\s.].+\.(\d{{{args.min_digits},}})$")
+
+    def is_valid(stem: str) -> bool:
+        return bool(pattern.match(stem))
+
+    # Patch is_valid_filename for this run
+    global is_valid_filename
+    is_valid_filename = is_valid
 
     scan_and_delete(
         directory=args.directory,
