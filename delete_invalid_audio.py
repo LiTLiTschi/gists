@@ -2,8 +2,11 @@
 """
 Delete audio files (mp3, m4a, etc.) whose stem does not follow the naming rule:
   - The segment immediately before the file extension must be purely numeric.
-  - It must contain at least MIN_DIGITS digits (default: 7, matches SoundCloud ID length).
+  - It must contain at least MIN_DIGITS digits (default: 6).
   - There must be at least one non-whitespace, non-dot character before that number.
+
+Files with exactly 5 digits in the ID segment are treated as warnings — they are
+listed separately but NOT deleted unless --delete-warn is passed.
 
 Optionally also deletes temporary download leftovers (.part, .temp, .tmp, .ytdl).
 
@@ -14,10 +17,13 @@ Valid:   My beautiful song....12451246.mp3
          X.253235208.mp3
          '.1788350158.mp3
 
+Warn:    something.12345.mp3   (exactly 5 digits — suspicious, listed separately)
+
 Invalid: ahuh11235.mp3
          oaoaoa.123.mp3
          .3613613.mp3
          THE END OF ...1111111 ALL.mp3
+         x.1234.mp3            (fewer than 5 digits)
 """
 
 import os
@@ -26,11 +32,17 @@ import argparse
 
 AUDIO_EXTENSIONS = {".mp3", ".m4a", ".flac", ".wav", ".aac", ".ogg"}
 TEMP_EXTENSIONS = {".part", ".temp", ".tmp", ".ytdl"}
-DEFAULT_MIN_DIGITS = 7
+DEFAULT_MIN_DIGITS = 6
+WARN_DIGITS = 5
 
 
 def build_pattern(min_digits: int) -> re.Pattern:
     return re.compile(r".*[^\s.].*\.(\d{" + str(min_digits) + r",})$")
+
+
+def build_warn_pattern(warn_digits: int) -> re.Pattern:
+    """Matches stems ending in exactly warn_digits digits."""
+    return re.compile(r".*[^\s.].*\.(\d{" + str(warn_digits) + r"})$")
 
 
 def is_valid_filename(stem: str, pattern: re.Pattern) -> bool:
@@ -42,12 +54,14 @@ def collect_files(
     recursive: bool,
     extensions: set,
     pattern: re.Pattern,
+    warn_pattern: re.Pattern,
     clean_temp: bool,
     temp_extensions: set,
-) -> tuple[list[str], list[str]]:
-    """Returns (invalid_audio, temp_files)."""
+) -> tuple[list[str], list[str], list[str]]:
+    """Returns (invalid_audio, warn_audio, temp_files)."""
     walker = os.walk(directory) if recursive else [(directory, [], os.listdir(directory))]
     invalid_audio = []
+    warn_audio = []
     temp_files = []
 
     for root, _dirs, files in walker:
@@ -57,10 +71,14 @@ def collect_files(
             if clean_temp and ext.lower() in temp_extensions:
                 temp_files.append(full_path)
             elif ext.lower() in extensions:
-                if not is_valid_filename(stem, pattern):
+                if is_valid_filename(stem, pattern):
+                    pass  # valid
+                elif is_valid_filename(stem, warn_pattern):
+                    warn_audio.append(full_path)
+                else:
                     invalid_audio.append(full_path)
 
-    return invalid_audio, temp_files
+    return invalid_audio, warn_audio, temp_files
 
 
 def print_and_confirm(label: str, files: list[str], dry_run: bool) -> bool:
@@ -112,6 +130,11 @@ def main() -> None:
         help="Skip confirmation prompts and delete immediately",
     )
     parser.add_argument(
+        "--delete-warn",
+        action="store_true",
+        help=f"Also delete files with exactly {WARN_DIGITS}-digit IDs (warnings)",
+    )
+    parser.add_argument(
         "--no-recursive",
         action="store_true",
         help="Only scan the top-level directory, not subdirectories",
@@ -158,6 +181,7 @@ def main() -> None:
     )
 
     pattern = build_pattern(args.min_digits)
+    warn_pattern = build_warn_pattern(WARN_DIGITS)
     dry_run = not args.delete
 
     print(f"\nScanning: {os.path.abspath(directory)}")
@@ -167,16 +191,34 @@ def main() -> None:
     if args.clean_temp:
         print(f"Temp extensions: {', '.join(sorted(temp_extensions))}")
 
-    invalid_audio, temp_files = collect_files(
+    invalid_audio, warn_audio, temp_files = collect_files(
         directory=directory,
         recursive=not args.no_recursive,
         extensions=extensions,
         pattern=pattern,
+        warn_pattern=warn_pattern,
         clean_temp=args.clean_temp,
         temp_extensions=temp_extensions,
     )
 
     anything_found = False
+
+    if warn_audio:
+        anything_found = True
+        print(f"\n[WARNING] Files with exactly {WARN_DIGITS}-digit IDs ({len(warn_audio)}) — possibly valid but suspicious:")
+        for path in warn_audio:
+            print(f"  ? {path}")
+        if args.delete_warn:
+            if dry_run:
+                if print_and_confirm(f"Warning files ({WARN_DIGITS}-digit IDs)", warn_audio, dry_run=True):
+                    delete_files(warn_audio)
+                else:
+                    print("  Skipped.")
+            else:
+                print(f"\nDeleting warning files ({len(warn_audio)}):")
+                delete_files(warn_audio)
+        else:
+            print(f"  (not deleting — pass --delete-warn to also remove these)")
 
     if invalid_audio:
         anything_found = True
