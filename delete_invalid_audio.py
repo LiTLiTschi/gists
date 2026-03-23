@@ -9,6 +9,8 @@ Valid:   My beautiful song....12451246.mp3
          Coooamo.1514651.mp3
          oaoaoa.123.36135615.mp3
          THE END OF ...1111111 ALL.134714714.m4a
+         X.253235208.mp3
+         '.1788350158.mp3
 
 Invalid: ahuh11235.mp3
          oaoaoa.123.mp3
@@ -25,7 +27,8 @@ DEFAULT_MIN_DIGITS = 7
 
 
 def build_pattern(min_digits: int) -> re.Pattern:
-    return re.compile(r".*[^\s.].+\.(\d{" + str(min_digits) + r",})$")
+    # At least one non-whitespace non-dot char, then anything, then dot, then >=min_digits digits
+    return re.compile(r".*[^\s.].*\.(\d{" + str(min_digits) + r",})$")
 
 
 def is_valid_filename(stem: str, pattern: re.Pattern) -> bool:
