@@ -5,6 +5,8 @@ Delete audio files (mp3, m4a, etc.) whose stem does not follow the naming rule:
   - It must contain at least MIN_DIGITS digits (default: 7, matches SoundCloud ID length).
   - There must be at least one non-whitespace, non-dot character before that number.
 
+Optionally also deletes temporary download leftovers (.part, .temp, .tmp, .ytdl).
+
 Valid:   My beautiful song....12451246.mp3
          Coooamo.1514651.mp3
          oaoaoa.123.36135615.mp3
@@ -23,11 +25,11 @@ import re
 import argparse
 
 AUDIO_EXTENSIONS = {".mp3", ".m4a", ".flac", ".wav", ".aac", ".ogg"}
+TEMP_EXTENSIONS = {".part", ".temp", ".tmp", ".ytdl"}
 DEFAULT_MIN_DIGITS = 7
 
 
 def build_pattern(min_digits: int) -> re.Pattern:
-    # At least one non-whitespace non-dot char, then anything, then dot, then >=min_digits digits
     return re.compile(r".*[^\s.].*\.(\d{" + str(min_digits) + r",})$")
 
 
@@ -35,49 +37,53 @@ def is_valid_filename(stem: str, pattern: re.Pattern) -> bool:
     return bool(pattern.match(stem))
 
 
-def scan_and_delete(
+def collect_files(
     directory: str,
-    dry_run: bool,
     recursive: bool,
     extensions: set,
     pattern: re.Pattern,
-) -> None:
+    clean_temp: bool,
+    temp_extensions: set,
+) -> tuple[list[str], list[str]]:
+    """Returns (invalid_audio, temp_files)."""
     walker = os.walk(directory) if recursive else [(directory, [], os.listdir(directory))]
-    invalid_files = []
+    invalid_audio = []
+    temp_files = []
 
     for root, _dirs, files in walker:
         for filename in files:
             stem, ext = os.path.splitext(filename)
-            if ext.lower() not in extensions:
-                continue
-            if not is_valid_filename(stem, pattern):
-                invalid_files.append(os.path.join(root, filename))
+            full_path = os.path.join(root, filename)
+            if clean_temp and ext.lower() in temp_extensions:
+                temp_files.append(full_path)
+            elif ext.lower() in extensions:
+                if not is_valid_filename(stem, pattern):
+                    invalid_audio.append(full_path)
 
-    if not invalid_files:
-        print("\nNo invalid files found. Nothing to do.")
-        return
+    return invalid_audio, temp_files
 
-    print(f"\nFound {len(invalid_files)} invalid file(s):")
-    for path in invalid_files:
+
+def print_and_confirm(label: str, files: list[str], dry_run: bool) -> bool:
+    """Print file list and return True if deletion should proceed."""
+    print(f"\n{label} ({len(files)} file(s)):")
+    for path in files:
         print(f"  - {path}")
-
     if dry_run:
-        print("\n[DRY RUN] No files were deleted.")
-        confirm = input("Delete these files now? [y/N] ").strip().lower()
-        if confirm != "y":
-            print("Aborted. No files deleted.")
-            return
+        confirm = input(f"\nDelete these {len(files)} file(s)? [y/N] ").strip().lower()
+        return confirm == "y"
+    return True
 
+
+def delete_files(files: list[str]) -> None:
     deleted = 0
-    for path in invalid_files:
+    for path in files:
         try:
             os.remove(path)
             print(f"  DELETED: {path}")
             deleted += 1
         except OSError as e:
             print(f"  ERROR deleting {path}: {e}")
-
-    print(f"\nDone. {deleted}/{len(invalid_files)} file(s) deleted.")
+    print(f"  {deleted}/{len(files)} file(s) deleted.")
 
 
 def prompt_directory() -> str:
@@ -103,7 +109,7 @@ def main() -> None:
     parser.add_argument(
         "--delete",
         action="store_true",
-        help="Skip the confirmation prompt and delete immediately",
+        help="Skip confirmation prompts and delete immediately",
     )
     parser.add_argument(
         "--no-recursive",
@@ -122,7 +128,19 @@ def main() -> None:
         nargs="+",
         default=None,
         metavar="EXT",
-        help="Extensions to check, e.g. --ext .mp3 .m4a (default: mp3 m4a flac wav aac ogg)",
+        help="Audio extensions to check, e.g. --ext .mp3 .m4a (default: mp3 m4a flac wav aac ogg)",
+    )
+    parser.add_argument(
+        "--clean-temp",
+        action="store_true",
+        help=f"Also delete temporary download files ({', '.join(sorted(TEMP_EXTENSIONS))})",
+    )
+    parser.add_argument(
+        "--temp-ext",
+        nargs="+",
+        default=None,
+        metavar="EXT",
+        help="Override temp extensions, e.g. --temp-ext .part .tmp (default: .part .temp .tmp .ytdl)",
     )
     args = parser.parse_args()
 
@@ -133,21 +151,63 @@ def main() -> None:
         if args.ext
         else AUDIO_EXTENSIONS
     )
+    temp_extensions = (
+        {e if e.startswith(".") else f".{e}" for e in args.temp_ext}
+        if args.temp_ext
+        else TEMP_EXTENSIONS
+    )
 
     pattern = build_pattern(args.min_digits)
+    dry_run = not args.delete
 
     print(f"\nScanning: {os.path.abspath(directory)}")
-    print(f"Extensions: {', '.join(sorted(extensions))}")
+    print(f"Audio extensions: {', '.join(sorted(extensions))}")
     print(f"Min ID digits: {args.min_digits}")
     print(f"Recursive: {not args.no_recursive}")
+    if args.clean_temp:
+        print(f"Temp extensions: {', '.join(sorted(temp_extensions))}")
 
-    scan_and_delete(
+    invalid_audio, temp_files = collect_files(
         directory=directory,
-        dry_run=not args.delete,
         recursive=not args.no_recursive,
         extensions=extensions,
         pattern=pattern,
+        clean_temp=args.clean_temp,
+        temp_extensions=temp_extensions,
     )
+
+    anything_found = False
+
+    if invalid_audio:
+        anything_found = True
+        if dry_run:
+            print(f"\n[DRY RUN] Invalid audio files ({len(invalid_audio)}):")
+            for path in invalid_audio:
+                print(f"  - {path}")
+            if print_and_confirm("Invalid audio files", invalid_audio, dry_run=True):
+                delete_files(invalid_audio)
+            else:
+                print("  Skipped.")
+        else:
+            print(f"\nDeleting invalid audio files ({len(invalid_audio)}):")
+            delete_files(invalid_audio)
+
+    if temp_files:
+        anything_found = True
+        if dry_run:
+            print(f"\n[DRY RUN] Temporary files ({len(temp_files)}):")
+            for path in temp_files:
+                print(f"  - {path}")
+            if print_and_confirm("Temporary files", temp_files, dry_run=True):
+                delete_files(temp_files)
+            else:
+                print("  Skipped.")
+        else:
+            print(f"\nDeleting temporary files ({len(temp_files)}):")
+            delete_files(temp_files)
+
+    if not anything_found:
+        print("\nNo files to delete. All clean!")
 
 
 if __name__ == "__main__":
