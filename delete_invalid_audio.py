@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """
-Delete audio files (mp3, m4a, etc.) whose stem does not end with a dot-separated
-pure-number segment immediately before the file extension.
+Delete audio files (mp3, m4a, etc.) whose stem does not follow the naming rule:
+  - The segment immediately before the file extension must be purely numeric.
+  - There must also be at least one non-empty segment BEFORE that number
+    (i.e. the file needs an actual name, not just a bare number).
 
-Valid:   My beautiful song....12451246.mp3
+Valid:   My beautiful song....12451246.mp3      -> stem ends in .<digits>, has name before it
          Coooamo.1514651.mp3
          oaoaoa.123.36135615.mp3
          THE END OF ...1111111 ALL.134714714.m4a
 
-Invalid: ahuh11235.mp3
-         oaoaoa.123.mp3
-         THE END OF ...1111111 ALL.mp3
+Invalid: ahuh11235.mp3                          -> no dot before digits at end
+         oaoaoa.123.mp3                         -> only one segment (the number), nothing before it
+         THE END OF ...1111111 ALL.mp3          -> no numeric segment before extension
 """
 
 import os
@@ -20,13 +22,17 @@ import argparse
 # File extensions to scan
 AUDIO_EXTENSIONS = {".mp3", ".m4a", ".flac", ".wav", ".aac", ".ogg"}
 
-# The last dot-separated segment before the extension must be all digits (>=1 digit)
-VALID_PATTERN = re.compile(r"\.(\d+)$")
+# Stem must have:
+#   - at least one character of "name" content before the final dot-number
+#   - a dot separating name from the numeric tag
+#   - one or more digits as the last dot-segment
+# Pattern: anything (non-empty, at least one char) + dot + digits_only at end
+VALID_PATTERN = re.compile(r".+\.(\d+)$")
 
 
 def is_valid_filename(stem: str) -> bool:
-    """Return True if the stem ends with a dot followed by one-or-more digits."""
-    return bool(VALID_PATTERN.search(stem))
+    """Return True if the stem has content before a trailing dot-number segment."""
+    return bool(VALID_PATTERN.match(stem))
 
 
 def scan_and_delete(
@@ -66,7 +72,7 @@ def scan_and_delete(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Delete audio files that don't end their stem with a numeric segment."
+        description="Delete audio files that don't end their stem with a numeric segment preceded by actual name content."
     )
     parser.add_argument(
         "directory",
