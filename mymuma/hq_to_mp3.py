@@ -30,6 +30,25 @@ import os
 import subprocess
 import sys
 
+
+# ── .env loader ───────────────────────────────────────────────────────────────
+
+
+def _load_env() -> None:
+    env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.isfile(env_file):
+        return
+    with open(env_file) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+_load_env()
+
 HQ_EXTENSIONS = {".m4a", ".flac", ".aac", ".ogg", ".wav"}
 
 
@@ -184,6 +203,14 @@ def main() -> None:
         help="List files that would be converted without doing anything",
     )
     args = parser.parse_args()
+
+    # ── Apply env-var defaults (CLI wins, then .env, then prompt) ─────────────
+    if not args.src and os.environ.get("HQ_TO_MP3_SRC"):
+        args.src = os.environ["HQ_TO_MP3_SRC"]
+    if not args.dest and os.environ.get("HQ_TO_MP3_DEST"):
+        args.dest = os.environ["HQ_TO_MP3_DEST"]
+    if args.ffmpeg == "ffmpeg" and os.environ.get("FFMPEG_PATH"):
+        args.ffmpeg = os.environ["FFMPEG_PATH"]
 
     # ── Resolve source dir ────────────────────────────────────────────────────
     src_dir = os.path.expanduser(args.src) if args.src else prompt_directory("Source directory (HQ files)")

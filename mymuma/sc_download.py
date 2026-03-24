@@ -51,6 +51,25 @@ import subprocess
 import sys
 
 
+# ── .env loader ───────────────────────────────────────────────────────────────
+
+
+def _load_env() -> None:
+    env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.isfile(env_file):
+        return
+    with open(env_file) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+_load_env()
+
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 
@@ -369,8 +388,12 @@ def main() -> None:
     args = parser.parse_args()
 
     mode       = args.mode       or prompt_mode()
-    client_id  = args.client_id  or prompt("SoundCloud client ID")
-    auth_token = args.auth_token or prompt("SoundCloud auth token", secret=True)
+    client_id  = (args.client_id  or os.environ.get("SC_CLIENT_ID")
+                  or prompt("SoundCloud client ID"))
+    auth_token = (args.auth_token or os.environ.get("SC_AUTH_TOKEN")
+                  or prompt("SoundCloud auth token", secret=True))
+    if args.output_dir == "~/Music/SoundCloud" and os.environ.get("SC_OUTPUT_DIR"):
+        args.output_dir = os.environ["SC_OUTPUT_DIR"]
 
     if mode == "sets":
         urls = args.urls or prompt_urls()

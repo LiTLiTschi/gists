@@ -40,6 +40,25 @@ import argparse
 import os
 import sys
 
+
+# ── .env loader ───────────────────────────────────────────────────────────────
+
+
+def _load_env() -> None:
+    env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.isfile(env_file):
+        return
+    with open(env_file) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+_load_env()
+
 try:
     from mutagen.id3 import (
         ID3,
@@ -238,11 +257,11 @@ def main() -> None:
         rules[tag] = rule
 
     # ── Resolve directories ───────────────────────────────────────────────────
-    src_dir = os.path.expanduser(args.src) if args.src else prompt_directory(
-        "Source directory (tagged MP3s)"
+    src_dir = os.path.expanduser(
+        args.src or os.environ.get("TRANSFER_META_SRC") or prompt_directory("Source directory (tagged MP3s)")
     )
-    tgt_dir = os.path.expanduser(args.tgt) if args.tgt else prompt_directory(
-        "Target directory (HQ MP3s to be tagged)"
+    tgt_dir = os.path.expanduser(
+        args.tgt or os.environ.get("TRANSFER_META_TGT") or prompt_directory("Target directory (HQ MP3s to be tagged)")
     )
 
     for label, path in [("Source", src_dir), ("Target", tgt_dir)]:
