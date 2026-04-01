@@ -38,12 +38,14 @@ _record_start = 0.0
 _playback_lock = threading.Lock()
 
 # -------- GUI widgets --------------------------------------------------------
-status_label   = GuiLabel('◉ IDLE')
-record_btn     = GuiButton('⏺  Record (hold pedal)', checkable=True)
+status_label   = GuiText('◉ IDLE')
+record_btn     = GuiButton('⏺  Record (hold pedal)')
 clear_btn      = GuiButton('🗑  Clear Clip')
-clip_info      = GuiLabel('No clip recorded')
-play_indicator = GuiLabel('► –')
-seq_note_sel   = GuiInputRow('Sequencer trigger note (0-127)', '36')  # C2 = 36
+clip_info      = GuiText('No clip recorded')
+play_indicator = GuiText('► –')
+seq_note_label = GuiText('Sequencer trigger note (0-127):')
+seq_note_sel   = GuiEditableText('36')  # C2 = 36
+GuiWidgetLayout([seq_note_label, seq_note_sel], title='Sequencer trigger')
 
 # -------- Recording: pedal controls start/stop ------------------------------
 @mpd_in.subscribe
@@ -86,7 +88,7 @@ def handle_mpd(msg: MidiMsg):
 @seq_in.subscribe
 def handle_seq(msg: MidiMsg):
     try:
-        trigger_note = int(seq_note_sel.value)
+        trigger_note = int(seq_note_sel.content)
     except ValueError:
         trigger_note = 36
 
