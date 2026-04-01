@@ -3,7 +3,8 @@ param(
     [Alias('src')][Parameter(Mandatory)][string]$SourceDir,
     [Alias('dst')][Parameter(Mandatory)][string]$DestDir,
     [ValidateRange(1,256)][int]$BufferSizeMB  = 8,
-    [ValidateRange(1,64)] [int]$ThrottleLimit = 8
+    [ValidateRange(1,64)] [int]$ThrottleLimit = 8,
+    [ValidateRange(1,1000)][int]$ProgressEvery = 100
 )
 
 $ErrorActionPreference = 'Stop'
@@ -98,13 +99,8 @@ function Test-Mp3TagEqual {
         [Parameter(Mandatory)][pscustomobject]$SrcLayout,
         [Parameter(Mandatory)][pscustomobject]$DstLayout
     )
-
-    if ($SrcLayout.Head -ne $DstLayout.Head -or $SrcLayout.Tail -ne $DstLayout.Tail) {
-        return $false
-    }
-    if ($SrcLayout.Head -eq 0 -and $SrcLayout.Tail -eq 0) {
-        return $true
-    }
+    if ($SrcLayout.Head -ne $DstLayout.Head -or $SrcLayout.Tail -ne $DstLayout.Tail) { return $false }
+    if ($SrcLayout.Head -eq 0 -and $SrcLayout.Tail -eq 0) { return $true }
 
     $srcFs = $null
     $dstFs = $null
@@ -126,9 +122,7 @@ function Test-Mp3TagEqual {
             Read-Exact $dstFs $dstB $n
             if (-not [System.Linq.Enumerable]::SequenceEqual(
                     [System.Collections.Generic.IEnumerable[byte]]$srcB,
-                    [System.Collections.Generic.IEnumerable[byte]]$dstB)) {
-                return $false
-            }
+                    [System.Collections.Generic.IEnumerable[byte]]$dstB)) { return $false }
         }
 
         if ($SrcLayout.Tail -gt 0) {
@@ -141,9 +135,7 @@ function Test-Mp3TagEqual {
             Read-Exact $dstFs $dstB $n
             if (-not [System.Linq.Enumerable]::SequenceEqual(
                     [System.Collections.Generic.IEnumerable[byte]]$srcB,
-                    [System.Collections.Generic.IEnumerable[byte]]$dstB)) {
-                return $false
-            }
+                    [System.Collections.Generic.IEnumerable[byte]]$dstB)) { return $false }
         }
 
         return $true
@@ -262,7 +254,11 @@ $allFiles = [System.IO.Directory]::GetFiles($SourceDir, '*.mp3', [System.IO.Sear
 $total    = $allFiles.Count
 Write-Host "Found $total MP3 files. Starting (ThrottleLimit=$ThrottleLimit)..."
 
-$copied = 0; $metadataUpdated = 0; $skipped = 0; $errors = 0; $done = 0
+# Thread-safe counters — workers increment directly, no collector pipeline needed
+$cDone    = [System.Threading.Volatile]::Read([ref]0)
+$counters  = [System.Collections.Concurrent.ConcurrentDictionary[string,int]]::new()
+foreach ($k in 'copied','meta','skipped','errors') { [void]$counters.TryAdd($k, 0) }
+$warnings  = [System.Collections.Concurrent.ConcurrentQueue[string]]::new()
 
 $allFiles | ForEach-Object -Parallel {
     . ([scriptblock]::Create($using:helperFunctions))
@@ -271,13 +267,19 @@ $allFiles | ForEach-Object -Parallel {
     $srcDir     = $using:SourceDir
     $dstDir     = $using:DestDir
     $bufferSize = $using:bufferSize
+    $counters   = $using:counters
+    $warnings   = $using:warnings
 
     $rel       = [System.IO.Path]::GetRelativePath($srcDir, $src)
     $dst       = [System.IO.Path]::Combine($dstDir, $rel)
     $dstParent = [System.IO.Path]::GetDirectoryName($dst)
     [void][System.IO.Directory]::CreateDirectory($dstParent)
 
-    if ($src -ieq $dst) { return 'skip:' }
+    if ($src -ieq $dst) {
+        [void]$counters.AddOrUpdate('skipped', 1, [Func[string,int,int]]{ $args[1] + 1 })
+        [void][System.Threading.Interlocked]::Increment([ref]$using:cDone)
+        return
+    }
 
     try {
         if ([System.IO.File]::Exists($dst)) {
@@ -285,43 +287,44 @@ $allFiles | ForEach-Object -Parallel {
             $dstLayout = Get-Mp3TagLayout -Path $dst
 
             if (Test-Mp3TagEqual -Source $src -Dest $dst -SrcLayout $srcLayout -DstLayout $dstLayout) {
-                return 'skip:'
+                [void]$counters.AddOrUpdate('skipped', 1, [Func[string,int,int]]{ $args[1] + 1 })
+            } else {
+                Copy-Mp3MetadataRaw -Source $src -Dest $dst -BufferSize $bufferSize `
+                                    -SrcLayout $srcLayout -DstLayout $dstLayout
+                [void]$counters.AddOrUpdate('meta', 1, [Func[string,int,int]]{ $args[1] + 1 })
             }
-
-            Copy-Mp3MetadataRaw -Source $src -Dest $dst -BufferSize $bufferSize `
-                                -SrcLayout $srcLayout -DstLayout $dstLayout
-            return 'meta:'
         }
         else {
             Copy-FileFast -Source $src -Dest $dst -BufferSize $bufferSize
-            return 'copy:'
+            [void]$counters.AddOrUpdate('copied', 1, [Func[string,int,int]]{ $args[1] + 1 })
         }
     }
     catch {
-        return "error:$($_.Exception.Message)|$rel"
+        [void]$counters.AddOrUpdate('errors', 1, [Func[string,int,int]]{ $args[1] + 1 })
+        $warnings.Enqueue("Failed: $rel :: $($_.Exception.Message)")
     }
 
-} -ThrottleLimit $ThrottleLimit | ForEach-Object {
-    $done++
-    switch -Wildcard ($_) {
-        'meta:*'  { $metadataUpdated++ }
-        'copy:*'  { $copied++ }
-        'skip:*'  { $skipped++ }
-        'error:*' {
-            $errors++
-            $parts = $_ -split '\|', 2
-            $msg   = ($parts[0] -replace '^error:', '')
-            $rel   = if ($parts.Count -gt 1) { $parts[1] } else { '(unknown)' }
-            Write-Warning "Failed: $rel :: $msg"
-        }
+    [void][System.Threading.Interlocked]::Increment([ref]$using:cDone)
+
+    # Throttled progress update — only the worker that hits a multiple of ProgressEvery prints
+    $snap = [System.Threading.Volatile]::Read([ref]$using:cDone)
+    if ($snap % $using:ProgressEvery -eq 0) {
+        $pct = [int](($snap / $using:total) * 100)
+        Write-Progress -Activity 'Syncing MP3s' `
+            -Status ("$snap / $($using:total)  |  Copied: {0}  Meta: {1}  Skipped: {2}  Errors: {3}" -f
+                $using:counters['copied'], $using:counters['meta'],
+                $using:counters['skipped'], $using:counters['errors']) `
+            -PercentComplete $pct
     }
 
-    $pct = [int](($done / $total) * 100)
-    Write-Progress -Activity "Syncing MP3s" `
-                   -Status "$done / $total  |  Copied: $copied  Meta: $metadataUpdated  Skipped: $skipped  Errors: $errors" `
-                   -PercentComplete $pct
+} -ThrottleLimit $ThrottleLimit
+
+# Drain any queued warnings
+while (-not $warnings.IsEmpty) {
+    $msg = $null
+    if ($warnings.TryDequeue([ref]$msg)) { Write-Warning $msg }
 }
 
-Write-Progress -Activity "Syncing MP3s" -Completed
-Write-Host ("Done. Total={0}; Copied={1}; MetadataUpdated={2}; Skipped={3}; Errors={4}" `
-    -f $total, $copied, $metadataUpdated, $skipped, $errors)
+Write-Progress -Activity 'Syncing MP3s' -Completed
+Write-Host ("Done. Total={0}; Copied={1}; MetadataUpdated={2}; Skipped={3}; Errors={4}" -f
+    $total, $counters['copied'], $counters['meta'], $counters['skipped'], $counters['errors'])
