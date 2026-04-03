@@ -74,7 +74,7 @@ $total = $tasks.Count
 Write-Host "Found    : $($all.Count) supported files"
 Write-Host "Queued   : $total files"
 if ($skipped -gt 0) {
-    Write-Host "Skipped  : $skipped files (already exist – pass -OverwriteExisting to re-convert)"
+    Write-Host "Skipped  : $skipped files (already exist - pass -OverwriteExisting to re-convert)"
 }
 Write-Host ""
 
@@ -82,7 +82,7 @@ if ($total -eq 0) {
     if ($all.Count -eq 0) {
         Write-Host 'No supported audio files found in input folder.'
     } else {
-        Write-Host 'Nothing to convert — all output files already exist.'
+        Write-Host 'Nothing to convert - all output files already exist.'
         Write-Host 'Pass -OverwriteExisting to force re-conversion.'
     }
     exit 0
@@ -94,12 +94,12 @@ if ($total -eq 0) {
 # Preserve-metadata workflow (requires -OverwriteExisting AND -PreserveMetadata
 # AND an already-existing destination file):
 #
-#   1. Rename existing dest  →  dest.~metabak   (keep old tags safe)
-#   2. Convert source        →  dest.~tmpaudio  (fresh 320 k encode, no tags)
+#   1. Rename existing dest  ->  dest.~metabak   (keep old tags safe)
+#   2. Convert source        ->  dest.~tmpaudio  (fresh 320k encode, no tags)
 #   3. Re-mux via ffmpeg:
 #        audio  from dest.~tmpaudio
-#        + ALL tags from dest.~metabak   (title, genre, BPM, key, rating, …)
-#        → final dest                    (-c:a copy, no re-encode)
+#        + ALL tags from dest.~metabak   (title, genre, BPM, key, rating, ...)
+#        -> final dest                   (-c:a copy, no re-encode)
 #   4. Delete dest.~metabak and dest.~tmpaudio
 #
 # On any failure the backup is restored so the original file is never lost.
@@ -123,12 +123,12 @@ $scriptBlock = {
         $tmpPath = $Task.Dest + '.~tmpaudio.mp3'
 
         try {
-            # Step 1 – protect the existing file (and its tags) as a backup
+            # Step 1 - protect the existing file (and its tags) as a backup
             Rename-Item -LiteralPath $Task.Dest `
                         -NewName ([System.IO.Path]::GetFileName($bakPath)) `
                         -ErrorAction Stop
 
-            # Step 2 – encode from source (no metadata; tags come from backup)
+            # Step 2 - encode from source (no metadata; tags come from backup)
             $cArgs = @(
                 '-threads', '0',
                 '-i',        $Task.Src,
@@ -143,11 +143,11 @@ $scriptBlock = {
             $convertOk = ($LASTEXITCODE -eq 0)
 
             if ($convertOk) {
-                # Step 3 – re-mux: 320 k audio + ALL tags from backup → final dest
-                #   -map_metadata 1  →  pull every ID3 tag from input[1] (the backup):
-                #                       title, artist, album, genre, comment, BPM,
-                #                       initial key, rating (POPM), track #, year, label …
-                #   -c:a copy        →  stream-copy the already-encoded audio; no re-encode
+                # Step 3 - re-mux: 320k audio + ALL tags from backup -> final dest
+                #   -map_metadata 1  ->  pull every ID3 tag from input[1] (the backup):
+                #                        title, artist, album, genre, comment, BPM,
+                #                        initial key, rating (POPM), track #, year, label ...
+                #   -c:a copy        ->  stream-copy the already-encoded audio; no re-encode
                 $mArgs = @(
                     '-i',            $tmpPath,
                     '-i',            $bakPath,
@@ -163,7 +163,7 @@ $scriptBlock = {
                     $ok = $true
                     Remove-Item -LiteralPath $bakPath -Force -ErrorAction SilentlyContinue
                 } else {
-                    # Merge failed – remove any partial dest, restore the backup
+                    # Merge failed - remove any partial dest, restore the backup
                     if (Test-Path -LiteralPath $Task.Dest) {
                         Remove-Item -LiteralPath $Task.Dest -Force -ErrorAction SilentlyContinue
                     }
@@ -172,14 +172,14 @@ $scriptBlock = {
                                 -ErrorAction SilentlyContinue
                 }
             } else {
-                # Convert failed – restore backup immediately
+                # Convert failed - restore backup immediately
                 Rename-Item -LiteralPath $bakPath `
                             -NewName ([System.IO.Path]::GetFileName($Task.Dest)) `
                             -ErrorAction SilentlyContinue
             }
         }
         catch {
-            # Unexpected error – best-effort restore so original file is not lost
+            # Unexpected error - best-effort restore so original file is not lost
             if ((Test-Path -LiteralPath $bakPath) -and -not (Test-Path -LiteralPath $Task.Dest)) {
                 Rename-Item -LiteralPath $bakPath `
                             -NewName ([System.IO.Path]::GetFileName($Task.Dest)) `
