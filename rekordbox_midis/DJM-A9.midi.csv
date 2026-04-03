@@ -1,0 +1,104 @@
+@file,1,DJM-A9,,,,,,,,,,,,
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+#CH1-CH4,,,,,,,,,,,,,,
+InputSelectA,InputSelect.A,Button,,9035,9039,903D,9041,,,,,,RO,Select INPUT to USBA
+InputSelectB,InputSelect.B,Button,,9042,9044,9046,9048,,,,,,RO,Select INPUT to USBB
+InputSelectExternal,InputSelect.DIGITAL,Button,,9032,9036,903A,903E,,,,,,RO,Select INPUT to DIGITAL
+InputSelectExternal,InputSelect.LINE,Button,,9033,9037,903B,903F,,,,,,RO,Select INPUT to LINE
+InputSelectExternal,InputSelect.PHONO,Button,,9034,9038,903C,9040,,,,,,RO,Select INPUT to PHONO
+InputSelectExternal,InputSelect.RETURN,Button,,9043,9045,9047,9049,,,,,,RO,Select INPUT to RETURN
+InputSelectExternal,InputSelect.USB,Button,,904A,904B,904C,904D,,,,,,RO,Select INPUT to USB
+InputSelectExternal,InputSelect.BLUETOOTH,Button,,9051,9052,9053,9054,,,,,,RO,Select INPUT to BLUETOOTH
+ChannelFader,ChannelFader,KnobSlider,,B011,B012,B013,B014,,,,,,,Channel Fader
+CrossfaderAssign,,KnobSlider,,B041,B042,B043,B044,,,,,,Max=127,CrossFaderAssign A(0x00)/Thru(0x40)/B(0x7F)
+,,,,,,,,,,,,,,
+#CROSS FADER,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B00B,,,,,,,,,,Fast,Crossfader
+,,,,,,,,,,,,,,
+#FADER CURVE,,,,,,,,,,,,,,
+#,ChannelFaderType,KnobSlider,B05E,,,,,,,,,,Max=127,ChannelFaderType Left(0x00)/Center(0x40)/Right(0x7F)
+#,CrossFaderType,KnobSlider,B05F,,,,,,,,,,Max=127,CrossFaderType   Left(0x00)/Center(0x40)/Right(0x7F)
+,,,,,,,,,,,,,,
+#MASTER,,,,,,,,,,,,,,
+#,MasterLevel,KnobSlider,B018,,,,,,,,,,Fast,Master Level
+#,Balance,KnobSlider,B017,,,,,,,,,,Fast,Balance
+#,MasterCue,Button,900E,,,,,,,,,,,Master CUE (Headphone CUE A valid/invalid)
+#,MasterCue,Button,9014,,,,,,,,,,,Master CUE (Headphone CUE B valid/invalid)
+#,EqCurve,Button,B021,,,,,,,,,,,ISOLATOR(0x00)/EQ(0x7F)
+,,,,,,,,,,,,,,
+#BOOTH MONITOR,,,,,,,,,,,,,,
+#,BoothLevel,KnobSlider,B019,,,,,,,,,,,BOOTH MONITOR
+,,,,,,,,,,,,,,
+#LINK,,,,,,,,,,,,,,
+#,LinkCue,Button,900F,,,,,,,,,,,LINK CUE (HEAD PHONE A)
+#,LinkCue,Button,9015,,,,,,,,,,,LINK CUE (HEAD PHONE B)
+,,,,,,,,,,,,,,
+#BEAT EFFECTS,,,,,,,,,,,,,,
+#,BeatLeft,Button,B04C,,,,,,,,,,,BEAT (LEFT)
+#,BeatRight,Button,B04D,,,,,,,,,,,BEAT (RIGHT)
+#,AutoTap,Button,B045,,,,,,,,,,,AUTO/TAP
+#,Tap,Button,B04E,,,,,,,,,,,TAP
+,,,,,,,,,,,,,,
+#EFFECT FREQUENCY,,,,,,,,,,,,,,
+#,FX.Low,Button,B068,,,,,,,,,,,EFFECT FREQUENCY LOW
+#,FX.Mid,Button,B067,,,,,,,,,,,EFFECT FREQUENCY MID
+#,FX.High,Button,B066,,,,,,,,,,,EFFECT FREQUENCY HIGH
+#,FX.DELAY,Button,B02A,,,,,,,,,,,EFFECT SELECT (DELAY)
+#,FX.ECHO,Button,B037,,,,,,,,,,,EFFECT SELECT (ECHO)
+#,FX.PINGPONG,Button,B033,,,,,,,,,,,EFFECT SELECT (PING PONG)
+#,FX.SPIRAL,Button,B02B,,,,,,,,,,,EFFECT SELECT (SPIRAL)
+#,FX.HELIX,Button,B03E,,,,,,,,,,,EFFECT SELECT (HELIX)
+#,FX.REVERB,Button,B036,,,,,,,,,,,EFFECT SELECT (REVERB)
+#,FX.FLANGER,Button,B032,,,,,,,,,,,EFFECT SELECT (FLANGER)
+#,FX.PHASER,Button,B039,,,,,,,,,,,EFFECT SELECT (PHASER)
+#,FX.FILTER,Button,B03B,,,,,,,,,,,EFFECT SELECT (FILTER)
+#,FX.TRANS,Button,B035,,,,,,,,,,,EFFECT SELECT (TRANS)
+#,FX.TRIPLETFILTER,Button,B03A,,,,,,,,,,,EFFECT SELECT (TRIPLET FILTER)
+#,FX.ROLL,Button,B02E,,,,,,,,,,,EFFECT SELECT (ROLL)
+#,FX.TRIPLETROLL,Button,B02F,,,,,,,,,,,EFFECT SELECT (TRIPLET ROLL)
+#,FX.MOBIUS,Button,B03D,,,,,,,,,,,EFFECT SELECT (MOBIUS)
+#,FX.SelectCFB,Button,9007,,,,,,,,,,,EFFECT CH SELECT CF.B
+#,FX.SelectCFA,Button,9006,,,,,,,,,,,EFFECT CH SELECT CF.A
+#,FX.SelectMIC,Button,9005,,,,,,,,,,,EFFECT CH SELECT MIC
+#,FX.SelectCH1,Button,9001,,,,,,,,,,,EFFECT CH SELECT CH1
+#,FX.SelectCH2,Button,9002,,,,,,,,,,,EFFECT CH SELECT CH2
+#,FX.SelectCH3,Button,9003,,,,,,,,,,,EFFECT CH SELECT CH3
+#,FX.SelectCH4,Button,9004,,,,,,,,,,,EFFECT CH SELECT CH4
+#,FX.SelectMASTER,Button,9008,,,,,,,,,,,EFFECT CH SELECT MASTER
+#,FX.QUANTIZE,Button,9076,,,,,,,,,,,EFFECT QUANTIZE
+#,FX.TIME,KnobSliderHiRes,B00D,,,,,,,,,,,EFFECT Time
+#,FX.LEVELDEPTH,Button,B05B,,,,,,,,,,,EFFECT LEVEL/DEPTH
+#,FX.XPADSlider,KnobSlider,B074,,,,,,,,,,Max=127,X-PAD SliderMode
+#,FX.XPADBeat,KnobSlider,B075,,,,,,,,,,Max=127,X-PAD SliderMode
+#,FX.XPADPress,Button,B072,,,,,,,,,,,X-PAD Press
+,,,,,,,,,,,,,,
+#SEND/RETURN,,,,,,,,,,,,,,
+#,SendReturnSelect,Button,B06F,,,,,,,,,,,1/4''TS JACK(0x00)/USB(0x7F)
+#,SendReturnReturnType,Button,B070,,,,,,,,,,,AUX(0x00)/INSERT(0x7F)
+#,SendReturnLevel,Button,B071,,,,,,,,,,,LEVEL
+#,SendReturnOnOff,Button,B040,,,,,,,,,,,On/Off
+,,,,,,,,,,,,,,
+#MIC,,,,,,,,,,,,,,
+#,MicEQHigh,KnobSlider,B01E,,,,,,,,,,Fast,MIC HI
+#,MicEQLow,KnobSlider,B01F,,,,,,,,,,Fast,MIC LOW
+,,,,,,,,,,,,,,
+# SoundColorFX,,,,,,,,,,,,,,
+#,CFX.JET,Button,B055,,,,,,,,,,,Sound Color FX (JET)
+#,CFX.SPACE,Button,B069,,,,,,,,,,,Sound Color FX (SPACE)
+#,CFX.SWEEP,Button,B06A,,,,,,,,,,,Sound Color FX (SWEEP)
+#,CFX.DUB_ECHO,Button,B06B,,,,,,,,,,,Sound Color FX (DUB ECHO)
+#,CFX.CRUSH,Button,B056,,,,,,,,,,,Sound Color FX (CRUSH)
+#,CFX.FILTER,Button,B057,,,,,,,,,,,Sound Color FX (FILTER)
+#,CFX.PARAMETER,KnobSlider,B06C,,,,,,,,,,Max=127,Sound Color FX PARAMETER
+,,,,,,,,,,,,,,
+#HEADPHONES,,,,,,,,,,,,,,
+#,HeadphonesMix,KnobSlider,B01B,,,,,,,,,,,HEADPHONES MIXING
+#,HeadphonesVolume,KnobSlider,B01A,,,,,,,,,,,HEADPHONES LEVEL
+,,,,,,,,,,,,,,
+#USB Peer,,,,,,,,,,,,,,
+PeerUsbPortName.USBA,PeerUsbPortName.USBA,Button,904E,,,,,,,,,,RO,USB A
+PeerUsbPortName.USBB,PeerUsbPortName.USBB,Button,904F,,,,,,,,,,RO,USB B
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

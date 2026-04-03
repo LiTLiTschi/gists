@@ -1,0 +1,48 @@
+@file,1,DJM-V10
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+#CH1-CH4,,,,,,,,,,,,,,
+InputSelectA,InputSelect.A,Button,,9035,9039,903D,9041,,,,,,RO,Select INPUT to USBA
+InputSelectB,InputSelect.B,Button,,9042,9044,9046,9048,,,,,,RO,Select INPUT to USBB
+InputSelectExternal,InputSelect.DIGITAL,Button,,9032,9036,903A,903E,,,,,,RO,Select INPUT to DIGITAL
+InputSelectExternal,InputSelect.LINE,Button,,9033,9037,903B,903F,,,,,,RO,Select INPUT to LINE
+InputSelectExternal,InputSelect.PHONO,Button,,9034,,903C,9040,,,,,,RO,Select INPUT to PHONO
+InputSelectExternal,InputSelect.RETURN3,Button,,,9045,,,,,,,,RO,Select INPUT to RETURN3
+InputSelectExternal,InputSelect.RETURNFXINT,Button,,9051,9054,9057,905A,,,,,,RO,Select INPUT to RETURN FX INT
+InputSelectExternal,InputSelect.RETURNFXRTN1,Button,,9052,,9058,,,,,,,RO,Select INPUT to RETURN FX RTN1
+InputSelectExternal,InputSelect.RETURNFXRTN2,Button,,,9055,,905B,,,,,,RO,Select INPUT to RETURN FX RTN2
+InputSelectExternal,InputSelect.RETURNFXALL,Button,,9053,9056,9059,905C,,,,,,RO,Select INPUT to RETURN FX ALL
+ChannelFader,ChannelFader,KnobSlider,,B011,B012,B013,B014,,,,,,,Channel Fader
+CrossfaderAssign,,KnobSlider,,B041,B042,B043,B044,,,,,,Max=127,CrossFaderAssign A(0x00)/Thru(0x40)/B(0x7F)
+,,,,,,,,,,,,,,
+#CH5,,,,,,,,,,,,,,
+InputSelectA.CH5,InputSelect.A,Button,905F,,,,,,,,,,RO,Select INPUT to USBA
+InputSelectB.CH5,InputSelect.B,Button,9060,,,,,,,,,,RO,Select INPUT to USBB
+InputSelectExternal.CH5,InputSelect.DIGITAL,Button,905D,,,,,,,,,,RO,Select INPUT to DIGITAL
+InputSelectExternal.CH5,InputSelect.LINE,Button,905E,,,,,,,,,,RO,Select INPUT to LINE
+InputSelectExternal.CH5,InputSelect.RETURN3,Button,9061,,,,,,,,,,RO,Select INPUT to RETURN3
+InputSelectExternal.CH5,InputSelect.SENDFXINT,Button,9062,,,,,,,,,,RO,Select INPUT to RETURN FX INT
+InputSelectExternal.CH5,InputSelect.SENDFXRTN1,Button,9063,,,,,,,,,,RO,Select INPUT to RETURN FX RTN1
+InputSelectExternal.CH5,InputSelect.SENDFXALL,Button,9064,,,,,,,,,,RO,Select INPUT to RETURN FX ALL
+ChannelFader.CH5,ChannelFader,KnobSlider,B06D,,,,,,,,,,,Channel Fader
+,,,,,,,,,,,,,,
+#CH6,,,,,,,,,,,,,,
+InputSelectA.CH6,InputSelect.A,Button,9068,,,,,,,,,,RO,Select INPUT to USBA
+InputSelectB.CH6,InputSelect.B,Button,9069,,,,,,,,,,RO,Select INPUT to USBB
+InputSelectExternal.CH6,InputSelect.DIGITAL,Button,9065,,,,,,,,,,RO,Select INPUT to DIGITAL
+InputSelectExternal.CH6,InputSelect.LINE,Button,9066,,,,,,,,,,RO,Select INPUT to LINE
+InputSelectExternal.CH6,InputSelect.PHONO,Button,9067,,,,,,,,,,RO,Select INPUT to PHONO
+InputSelectExternal.CH6,InputSelect.SENDFXINT,Button,906A,,,,,,,,,,RO,Select INPUT to RETURN FX INT
+InputSelectExternal.CH6,InputSelect.SENDFXRTN2,Button,906B,,,,,,,,,,RO,Select INPUT to RETURN FX RTN2
+InputSelectExternal.CH6,InputSelect.SENDFXALL,Button,906C,,,,,,,,,,RO,Select INPUT to RETURN FX ALL
+ChannelFader.CH6,ChannelFader,KnobSlider,B06E,,,,,,,,,,,Channel Fader
+,,,,,,,,,,,,,,
+#CROSS FADER,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B00B,,,,,,,,,,Fast,Crossfader
+,,,,,,,,,,,,,,
+#USB Peer,,,,,,,,,,,,,,
+PeerUsbPortName.USBA,PeerUsbPortName.USBA,Button,904E,,,,,,,,,,RO,USB A
+PeerUsbPortName.USBB,PeerUsbPortName.USBB,Button,904F,,,,,,,,,,RO,USB B
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

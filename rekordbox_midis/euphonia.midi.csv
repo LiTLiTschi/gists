@@ -1,0 +1,58 @@
+@file,1,EUPHONIA,,,,,,,,,,,,
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+#CH1-CH4,,,,,,,,,,,,,,
+InputSelectA,InputSelect.PC,Button,,9035,9039,903D,9041,,,,,,RO,Select INPUT to USBA
+InputSelectExternal,InputSelect.DIGITAL,Button,,9032,9036,903A,903E,,,,,,RO,Select INPUT to DIGITAL
+InputSelectExternal,InputSelect.LINE,Button,,9033,9037,903B,903F,,,,,,RO,Select INPUT to LINE
+InputSelectExternal,InputSelect.PHONO,Button,,9034,9038,903C,9040,,,,,,RO,Select INPUT to PHONO
+ChannelFader,ChannelFader,KnobSlider,,B011,B012,B013,B014,,,,,,,Channel Rotary Volume
+,,,,,,,,,,,,,,
+#MASTER,,,,,,,,,,,,,,
+#,MasterLevel,KnobSlider,B018,,,,,,,,,,Fast,Master Level
+,,,,,,,,,,,,,,
+#BOOTH MONITOR,,,,,,,,,,,,,,
+#,BoothLevel,KnobSlider,B019,,,,,,,,,,,BOOTH MONITOR
+,,,,,,,,,,,,,,
+#SEND EFFECTS,,,,,,,,,,,,,,
+#,Tap,Button,B04E,,,,,,,,,,,TAP
+#,FX.HPF,Button,B02A,,,,,,,,,,,EFFECT SELECT (DELAY)
+#,FX.DELAY,Button,B037,,,,,,,,,,,EFFECT SELECT (TAPE ECHO)
+#,FX.TAPEECHO,Button,B033,,,,,,,,,,,EFFECT SELECT (ECHO VERB)
+#,FX.ECHOVERB,Button,B02B,,,,,,,,,,,EFFECT SELECT (REVERB)
+#,FX.REVERB,Button,B03E,,,,,,,,,,,EFFECT SELECT (SHIMMER)
+#,FX.SHIMMER,Button,B036,,,,,,,,,,,EFFECT SELECT (HPF)
+#,FX.EXT,Button,B032,,,,,,,,,,,EFFECT SELECT (EXT)
+#,FX.TIME,KnobSlider,B06A,,,,,,,,,,,EFFECT TIME
+#,FX.PARAMETER,KnobSlider,B06B,,,,,,,,,,,EFFECT PARAMETER
+#,FX.RETURNLEVEL,KnobSlider,B06C,,,,,,,,,,,EFFECT RETURN LEVEL
+,,,,,,,,,,,,,,
+#MASTER ISOLATOR,,,,,,,,,,,,,,
+#,MasterISO.HiButton,Button,9052,,,,,,,,,,,MASTER ISOLATOR Hi Button
+#,MasterISO.MidButton,Button,9051,,,,,,,,,,,MASTER ISOLATOR Mid Button
+#,MasterISO.LowButton,Button,9050,,,,,,,,,,,MASTER ISOLATOR Low Button
+#,MasterISO.HiVolume,KnobSlider,B069,,,,,,,,,,,MASTER ISOLATOR Hi Volume
+#,MasterISO.MidVolume,KnobSlider,B068,,,,,,,,,,,MASTER ISOLATOR Mid Volume
+#,MasterISO.LowVolume,KnobSlider,B067,,,,,,,,,,,MASTER ISOLATOR Low Volume
+#,MasterISO.BoostLevel,KnobSlider,9053,,,,,,,,,,,6dB(0x00)/9dB(0x40)/12dB(0x7F)
+,,,,,,,,,,,,,,
+#MIC,,,,,,,,,,,,,,
+#,MicEQHigh,KnobSlider,B01E,,,,,,,,,,Fast,MIC HI
+#,MicEQLow,KnobSlider,B01F,,,,,,,,,,Fast,MIC LOW
+#,MicOn,KnobSlider,B04F,,,,,,,,,,,OFF(0x00)/ON(0x40)/TALK OVER(0x7F)
+,,,,,,,,,,,,,,
+#HEADPHONES,,,,,,,,,,,,,,
+#,HeadphonesMix,KnobSlider,B01B,,,,,,,,,,,HEADPHONES MIXING
+#,HeadphonesVolume,KnobSlider,B01A,,,,,,,,,,,HEADPHONES LEVEL
+,,,,,,,,,,,,,,
+#VIEW,,,,,,,,,,,,,,
+#,View,Button,9058,,,,,,,,,,,VIEW
+,,,,,,,,,,,,,,
+#BPM ADJUST,,,,,,,,,,,,,,
+#,BpmAdjust,Button,9059,,,,,,,,,,,BPM ADJUST
+,,,,,,,,,,,,,,
+#MASTER INSERT,,,,,,,,,,,,,,
+#,MasterInsert,Button,9060,,,,,,,,,,,MASTER INSERT
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

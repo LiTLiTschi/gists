@@ -1,0 +1,95 @@
+﻿@file,1,OPUS-QUAD,,,,,,,,,,,,
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+# Browser,,,,,,,,,,,,,,
+Browse,Browse,Rotary,B04F,,,,,,,,,,,Browse(Track/Folder Select)
+Zoom,Browse+Shift,Rotary,B060,,,,,,,,,,,Scaling Waveform for all deck
+Forward,Browse+Press,Button,9033,,,,,,,,,,,Library Forward (Folder Open)
+Forward,Browse+Press+Shift,Button,9061,,,,,,,,,,,Library Forward (Folder Open)
+Back,Back,Button,9032,,,,,,,,,,,Library Back (Folder Close)
+Area,Back+Shift,Button,905F,,,,,,,,,,,Area (Change panel type from among several types)
+AddToTagList,AddToTagList,Button,9030,,,,,,,,,,,Tag Track
+RelatedTracks,AddToTagList+Shift,Button,9062,,,,,,,,,,,Related Track
+BrowseUp,BrowseUp,Button,9031,,,,,,,,,,,Browse(Track/Folder Select)
+BrowseUp,BrowseUp+Shift,Button,905D,,,,,,,,,,,Browse(Track/Folder Select)
+BrowseDown,BrowseDown,Button,9034,,,,,,,,,,,Browse(Track/Folder Select)
+BrowseDown,BrowseDown+Shift,Button,9035,,,,,,,,,,,Browse(Track/Folder Select)
+Back,Back,Button,9037,,,,,,,,,,,Library Back (Folder Close)
+Back,Back+Shift,Button,9038,,,,,,,,,,,Library Back (Folder Close)
+Forward,Browse+Press,Button,9039,,,,,,,,,,,Library Forward (Folder Open)
+Forward,Browse+Press+Shift,Button,903A,,,,,,,,,,,Library Forward (Folder Open)
+Load,Load,Button,9051,0,1,2,3,9051,0,1,2,3,,Load to Deck / Instant Double (double click)
+NeedleSearch,NeedleSearch,Value,B01C,0,1,2,3,,,,,,Max=16383,Needle Search slide(00-7f)
+#,NeedleSearch+Touch,Button,9036,0,1,2,3,,,,,,,Needle Search touch(00/7f)
+,,,,,,,,,,,,,,
+# Deck,,,,,,,,,,,,,,
+#JogScratch,JogScratch,JogRotate,B022,0,1,2,3,,,,,,RO,Scratch
+#JogPitchBend,JogPitchBend,JogRotate,B022,0,1,2,3,,,,,,RO,Pitch Bend
+#JogSearch,JogSearch,Difference,B029,0,1,2,3,,,,,,RO,Search
+#JogTouch,JogTouch,JogTouch,9020,0,1,2,3,,,,,,RO,Touch
+#JogTouch,JogTouch+Shift,JogTouch,9048,0,1,2,3,,,,,,RO,Touch
+,,,,,,,,,,,,,,
+#WheelPitchBend,WheelPitchBend,JogRotate,B021,0,1,2,3,,,,,,RO,Pitch Bend
+#WheelPitchBend,WheelPitchBend+Shift,JogRotate,B026,0,1,2,3,,,,,,RO,Pitch Bend
+,,,,,,,,,,,,,,
+TempoSlider,TempoSlider,KnobSliderHiRes,B000,0,1,2,3,,,,,,Fast,Tempo Control
+TempoReset,TempoReset,Button,9013,0,1,2,3,9013,0,1,2,3,,Tempo Reset
+TempoRange,TempoRange,Button,9010,0,1,2,3,,,,,,,Tempo Range
+MasterTempo,MasterTempo,Button,9011,0,1,2,3,9011,0,1,2,3,,MasterTempo On/Off
+,,,,,,,,,,,,,,
+KeySync,KeySync,Button,9002,0,1,2,3,9002,0,1,2,3,,Key Sync On/Off
+#JogAdjust,,,,,,,,,,,,,,
+Sync,Sync,Button,901F,0,1,2,3,901F,0,1,2,3,Blink=600,Sync On/Off
+InstDoubles,Sync+LongPress,Button,9047,0,1,2,3,,,,,,,
+Master,Master,Button,901E,0,1,2,3,901E,0,1,2,3,,Master On/Off
+Vinyl,Vinyl,Button,9012,0,1,2,3,9012,0,1,2,3,,Vinyl Mode On/Off (for JOG)
+VinylAdjustBrake,VinylAdjustBrake,KnobSlider,B01E,0,1,2,3,,,,,,,
+DeckState,DeckState,Button,9003,0,1,2,3,9003,0,1,2,3,RO,LED State of the DECK 1/2/3/4 buttons
+TrackNext,TrackNext,Button,9004,0,1,2,3,,,,,,,
+TrackPrev,TrackPrev,Button,9005,0,1,2,3,,,,,,,
+Quantize,Quantize,Button,9009,0,1,2,3,9009,0,1,2,3,,Quantize On/Off
+Shift,Shift,Button,903F,0,1,2,3,,,,,,RO,Shift
+LoopHalfDouble,AutoLoop,Rotary,B02E,0,1,2,3,,,,,,Fast,LoopSizeSelect
+AutoLoop,AutoLoop+Press,Button,9043,0,1,2,3,9043,0,1,2,3,,Auto Loop On/Off
+ReloopExit,AutoLoop+Press+Shift,Button,9044,0,1,2,3,9044,0,1,2,3,Fast,Reloop/Exit
+LoopIn,LoopIn,Button,9006,0,1,2,3,9006,0,1,2,3,Fast,Loop in/Loop in adjust
+4BeatLoopLongPress,LoopIn+LongPress,Button,9045,0,1,2,3,9045,0,1,2,3,Fast,4Beat Loop
+LoopOut,LoopOut,Button,9007,0,1,2,3,9007,0,1,2,3,Fast,Loop out/Loop out adjust
+SlipReverse,SlipReverse,Button,9021,0,1,2,3,9021,0,1,2,3,,SLIP Reverse
+,,,,,,,,,,,,,,
+Cue,Cue,Button,9001,0,1,2,3,9001,0,1,2,3,Fast;Priority=50,Cue Set/Play Cue Back
+PlayPause,PlayPause,Button,9000,0,1,2,3,9000,0,1,2,3,Fast;Priority=50,Play/Pause
+,,,,,,,,,,,,,,
+PAD1_HotCue,PAD1.HotCue.Call,Pad,9008,0,1,2,3,9008,0,1,2,3,Fast,HOT CUE 1
+PAD1_HotCue+Shift,PAD1.HotCue.Delete,Pad,900A,0,1,2,3,900A,0,1,2,3,Fast,Delete HOT CUE 1
+PAD2_HotCue,PAD2.HotCue.Call,Pad,900B,0,1,2,3,900B,0,1,2,3,Fast,HOT CUE 2
+PAD2_HotCue+Shift,PAD2.HotCue.Delete,Pad,900C,0,1,2,3,900C,0,1,2,3,Fast,Delete HOT CUE 2
+PAD3_HotCue,PAD3.HotCue.Call,Pad,900D,0,1,2,3,900D,0,1,2,3,Fast,HOT CUE 3
+PAD3_HotCue+Shift,PAD3.HotCue.Delete,Pad,900E,0,1,2,3,900E,0,1,2,3,Fast,Delete HOT CUE 3
+PAD4_HotCue,PAD4.HotCue.Call,Pad,900F,0,1,2,3,900F,0,1,2,3,Fast,HOT CUE 4
+PAD4_HotCue+Shift,PAD4.HotCue.Delete,Pad,9014,0,1,2,3,9014,0,1,2,3,Fast,Delete HOT CUE 4
+PAD5_HotCue,PAD5.HotCue.Call,Pad,9015,0,1,2,3,9015,0,1,2,3,Fast,HOT CUE 5
+PAD5_HotCue+Shift,PAD5.HotCue.Delete,Pad,9016,0,1,2,3,9016,0,1,2,3,Fast,Delete HOT CUE 5
+PAD6_HotCue,PAD6.HotCue.Call,Pad,9017,0,1,2,3,9017,0,1,2,3,Fast,HOT CUE 6
+PAD6_HotCue+Shift,PAD6.HotCue.Delete,Pad,9018,0,1,2,3,9018,0,1,2,3,Fast,Delete HOT CUE 6
+PAD7_HotCue,PAD7.HotCue.Call,Pad,9019,0,1,2,3,9019,0,1,2,3,Fast,HOT CUE 7
+PAD7_HotCue+Shift,PAD7.HotCue.Delete,Pad,901A,0,1,2,3,901A,0,1,2,3,Fast,Delete HOT CUE 7
+PAD8_HotCue,PAD8.HotCue.Call,Pad,901B,0,1,2,3,901B,0,1,2,3,Fast,HOT CUE 8
+PAD8_HotCue+Shift,PAD8.HotCue.Delete,Pad,901C,0,1,2,3,901C,0,1,2,3,Fast,Delete HOT CUE 8
+,,,,,,,,,,,,,,
+# Mixer,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B40B,,,,,,,,,,Fast,Crossfader
+ChannelFader,ChannelFader,KnobSlider,,B411,B412,B413,B414,,,,,,,CH Fader
+CrossfaderAssign,,KnobSlider,,B441,B442,B443,B444,,,,,,Max=127,CrossFaderAssign A(0x00)/Thru(0x40)/B(0x7F)
+,,,,,,,,,,,,,,
+#SmoothEchoTiming,SmoothEchoTiming,Indicator,,,,,,B065,0,1,2,3,RO,SMOOTH ECHO TIMING Notification
+,,,,,,,,,,,,,,
+# illumination,,,,,,,,,,,,,,
+LoadedIndicator,LoadedIndicator,Indicator,,,,,,,9B00,9B01,9B02,9B03,RO;Priority=100,Trigger for Load illumination
+JogPlayPauseIndicator,JogPlayPauseIndicator,JogIndicator,,,,,,,BB00,BB01,BB02,BB03,RO;Min=1;Max=72;Priority=100,Playing States for the trigger for JOG illumination
+JogCurrentCueIndicator,JogCurrentCueIndicator,JogIndicator,,,,,,,BB04,BB05,BB06,BB07,RO;Min=1;Max=72;Priority=100,Current Cue Position for JOG illumination
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+JogIndicatorInterval,JogIndicatorInterval,Parameter,FFF1,,,,,,,,,,Value=12,
+JogRatency,JogRatency,Parameter,FFF2,,,,,,,,,,Value=4,unused
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=2,

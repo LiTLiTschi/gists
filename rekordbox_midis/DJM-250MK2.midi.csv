@@ -1,0 +1,44 @@
+@file,1,DJM-250MK2
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+#CH1-CH4,,,,,,,,,,,,,,
+InputSelectA,InputSelect.PC,Button,,9035,9039,,,,,,,,RO,Select INPUT to USBA
+InputSelectExternal,InputSelect.LINE,Button,,9033,9037,,,,,,,,RO,Select INPUT to LINE
+InputSelectExternal,InputSelect.PHONO,Button,,9034,9038,,,,,,,,RO,Select INPUT to PHONO
+#,Gain,KnobSlider,,B001,B006,,,,,,,,Fast,Gain
+#,EQHigh,KnobSlider,,B002,B007,,,,,,,,Fast,High
+#,EQMid,KnobSlider,,B003,B008,,,,,,,,Fast,Mid
+#,EQLow,KnobSlider,,B004,B009,,,,,,,,Fast,Low
+#,Color,KnobSlider,,B005,B00A,,,,,,,,Fast,Color
+#,HeadphoneCue,Button,,B046,B047,,,,,,,,,Headphone CUE On/Off
+ChannelFader,ChannelFader,KnobSlider,,B011,B012,,,,,,,,,Channel Fader
+,,,,,,,,,,,,,,
+#CROSS FADER,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B00B,,,,,,,,,,Fast,Crossfader
+#,CrossFaderType,KnobSlider,B05F,,,,,,,,,,Max=127,CrossFaderType   Left(0x00)/Center(0x40)/Right(0x7F)
+#,CrossFaderReverse,Button,B060,,,,,,,,,,,Crossfader Reverse
+,,,,,,,,,,,,,,
+#MASTER,,,,,,,,,,,,,,
+#,MasterLevel,KnobSlider,B018,,,,,,,,,,Fast,Master Level
+,,,,,,,,,,,,,,
+#AUX Input Select,,,,,,,,,,,,,,
+AUXInputSelect.PC,AUXInputSelect.PC,Button,904A,,,,,,,,,,RO,Select Aux Input to PC
+AUXInputSelect.Line,AUXInputSelect.Line,Button,904B,,,,,,,,,,RO,Select Aux Input to LINE
+,,,,,,,,,,,,,,
+#MIC,,,,,,,,,,,,,,
+#,MicLevel,KnobSlider,B01E,,,,,,,,,,Fast,
+#,MicTone,KnobSlider,B01F,,,,,,,,,,Fast,
+,,,,,,,,,,,,,,
+# SoundColorFX,,,,,,,,,,,,,,
+#,CFX.FILTER,Button,B057,,,,,,,,,,,Sound Color FX (FILTER)
+#,CFX.PARAMETER,KnobSlider,B06C,,,,,,,,,,Max=127,Sound Color FX PARAMETER
+,,,,,,,,,,,,,,
+#HEADPHONES,,,,,,,,,,,,,,
+#,HeadphonesMix,KnobSlider,B01B,,,,,,,,,,,HEADPHONES MIXING
+#,HeadphonesVolume,KnobSlider,B01A,,,,,,,,,,,HEADPHONES LEVEL
+,,,,,,,,,,,,,,
+#USB Peer,,,,,,,,,,,,,,
+PeerUsbPortName.USBA,PeerUsbPortName.USBA,Button,904E,,,,,,,,,,RO,USB A
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

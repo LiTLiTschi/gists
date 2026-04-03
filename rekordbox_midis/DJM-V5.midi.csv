@@ -1,0 +1,67 @@
+@file,1,DJM-V5,,,,,,,,,,,,
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+#CH1-CH3,,,,,,,,,,,,,,
+InputSelectA,InputSelect.PC,Button,,9035,9039,903D,,,,,,,RO,Select INPUT to USBA
+InputSelectExternal,InputSelect.LINE,Button,,9033,9037,903B,,,,,,,RO,Select INPUT to LINE
+InputSelectExternal,InputSelect.PHONO,Button,,9034,9038,903C,,,,,,,RO,Select INPUT to PHONO
+ChannelFader,ChannelFader,KnobSlider,,B011,B012,B013,,,,,,,,Channel Fader
+,,,,,,,,,,,,,,
+#FADER CURVE,,,,,,,,,,,,,,
+#,ChannelFaderType,KnobSlider,B05E,,,,,,,,,,Max=127,ChannelFaderType Left(0x00)/Center(0x40)/Right(0x7F)
+,,,,,,,,,,,,,,
+#MASTER,,,,,,,,,,,,,,
+#,MasterLevel,KnobSlider,B018,,,,,,,,,,Fast,Master Level#,MasterFilter,KnobSlider,B026,,,,,,,,,,Max=127,Master Filter
+#,MasterCue,Button,901E,,,,,,,,,,,Master CUE (valid/invalid)
+,,,,,,,,,,,,,,
+#BOOTH MONITOR,,,,,,,,,,,,,,
+#,BoothLevel,KnobSlider,B019,,,,,,,,,,,BOOTH MONITOR
+,,,,,,,,,,,,,,
+#LINK,,,,,,,,,,,,,,
+#,LinkCue,KnobSlider,B074,,,,,,,,,,Max=127,LINK Cue Level
+,,,,,,,,,,,,,,
+#MULTI I/O,,,,,,,,,,,,,,
+#,MultiIOModeButton,Button,9030,,,,,,,,,,,Multi I/O Mode
+#,MultiIOType,Button,B070,,,,,,,,,,,Multi I/O Type NONE(0x00)/USB(0x40)/1/4''TS JACK(0x7F)
+#,MultiIOChSelect.Mic,Button,9028,,,,,,,,,,,Multi I/O Ch Select Mic
+#,MultiIOChSelect.Ch1,Button,9022,,,,,,,,,,,Multi I/O Ch Select Ch1
+#,MultiIOChSelect.Ch2,Button,9023,,,,,,,,,,,Multi I/O Ch Select Ch2
+#,MultiIOChSelect.Ch3,Button,9024,,,,,,,,,,,Multi I/O Ch Select Ch3
+#,MultiIOChSelect.Master,Button,9029,,,,,,,,,,,Multi I/O Ch Select Master
+#,MultiIOOnOff,Button,B040,,,,,,,,,,,Multi I/O On/Off
+,,,,,,,,,,,,,,
+#MIC,,,,,,,,,,,,,,
+#,MicEQHigh,KnobSlider,B01E,,,,,,,,,,Fast,MIC HI
+#,MicEQLow,KnobSlider,B01F,,,,,,,,,,Fast,MIC LOW
+#,MicTalkOver,Button,9025,,,,,,,,,,,MIC TalkOver
+#,MicOnOff,Button,9026,,,,,,,,,,,MIC On/Off
+,,,,,,,,,,,,,,
+#Filter,,,,,,,,,,,,,,
+#,FilterLPF,Button,900D,,,,,,,,,,,Filter LPF
+#,FilterHPF,Button,900E,,,,,,,,,,,Filter HPF
+#,FilterKickPass,Button,900F,,,,,,,,,,,Filter KickPass
+#,FilterResonance,KnobSlider,B02C,,,,,,,,,,Max=127,Filter Resonance
+,,,,,,,,,,,,,,
+#SEND,,,,,,,,,,,,,,
+#,SendEffect.ShortDelay,Button,9013,,,,,,,,,,,Send Effect (Short Delay)
+#,SendEffect.Reverb,Button,902D,,,,,,,,,,,Send Effect (Reverb)
+#,SendEffect.Shimmer,Button,902E,,,,,,,,,,,Send Effect (Shimmer)
+#,SendEffect.TapeEcho,Button,902F,,,,,,,,,,,Send Effect (Tape Echo)
+#,SendEffect.EchoVerb,Button,9014,,,,,,,,,,,Send Effect (Echo Verb)
+#,SendEffect.PingPong,Button,9015,,,,,,,,,,,Send Effect (PingPong)
+#,SendTap,Button,902C,,,,,,,,,,,Send Tap
+#,SendSizeFeedback,KnobSlider,B06C,,,,,,,,,,Fast,Send Size/Feedback
+#,SendTime,KnobSlider,B069,,,,,,,,,,Fast,Send Time
+#,SendTone,KnobSlider,B06A,,,,,,,,,,Fast,Send Tone
+#,SendMasterMixLevel,KnobSlider,B06B,,,,,,,,,,Max=127,Send Master Mix Level
+,,,,,,,,,,,,,,
+#HEADPHONES,,,,,,,,,,,,,,
+#,HeadphonesMix,KnobSlider,B01B,,,,,,,,,,,HEADPHONES MIXING
+#,HeadphonesVolume,KnobSlider,B01A,,,,,,,,,,,HEADPHONES LEVEL#,HeadphonesMonoSplit,Button,9021,,,,,,,,,,,HEADPHONES MONO/SPLIT
+#,HeadphonesSonicLink,Button,9027,,,,,,,,,,,HEADPHONES SONICLINK
+,,,,,,,,,,,,,,
+#USB Peer,,,,,,,,,,,,,,
+PeerUsbPortName.USBA,PeerUsbPortName.USBA,Button,904E,,,,,,,,,,RO,USB A
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

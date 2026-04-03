@@ -1,0 +1,80 @@
+@file,1,DJM-450
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+#CH1-CH4,,,,,,,,,,,,,,
+InputSelectA,InputSelect.PC,Button,,9035,9039,,,,,,,,RO,Select INPUT to USBA
+InputSelectExternal,InputSelect.LINE,Button,,9033,9037,,,,,,,,RO,Select INPUT to LINE
+InputSelectExternal,InputSelect.PHONO,Button,,9034,9038,,,,,,,,RO,Select INPUT to PHONO
+#,Gain,KnobSlider,,B001,B006,,,,,,,,Fast,Gain
+#,EQHigh,KnobSlider,,B002,B007,,,,,,,,Fast,High
+#,EQMid,KnobSlider,,B003,B008,,,,,,,,Fast,Mid
+#,EQLow,KnobSlider,,B004,B009,,,,,,,,Fast,Low
+#,Color,KnobSlider,,B005,B00A,,,,,,,,Fast,Color
+#,HeadphoneCue,Button,,B046,B047,,,,,,,,,Headphone CUE On/Off
+ChannelFader,ChannelFader,KnobSlider,,B011,B012,,,,,,,,,Channel Fader
+,,,,,,,,,,,,,,
+#CROSS FADER,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B00B,,,,,,,,,,Fast,Crossfader
+#,CrossFaderType,KnobSlider,B05F,,,,,,,,,,Max=127,CrossFaderType   Left(0x00)/Center(0x40)/Right(0x7F)
+#,CrossFaderReverse,Button,B060,,,,,,,,,,,Crossfader Reverse
+,,,,,,,,,,,,,,
+#MASTER,,,,,,,,,,,,,,
+#,MasterLevel,KnobSlider,B018,,,,,,,,,,Fast,Master Level
+#,MasterCue,Button,B04A,,,,,,,,,,,Master CUE (All Headphone CUE valid/invalid)
+#,EqCurve,Button,B021,,,,,,,,,,,ISOLATOR(0x00)/EQ(0x7F)
+,,,,,,,,,,,,,,
+#BEAT EFFECTS,,,,,,,,,,,,,,
+#,BeatLeft,Button,B04C,,,,,,,,,,,BEAT (LEFT)
+#,BeatRight,Button,B04D,,,,,,,,,,,BEAT (RIGHT)
+#,Tap,Button,B04E,,,,,,,,,,,TAP
+,,,,,,,,,,,,,,
+#EFFECT FREQUENCY,,,,,,,,,,,,,,
+#,FX.DELAY,Button,B02A,,,,,,,,,,,EFFECT SELECT (DELAY)
+#,FX.ECHO,Button,B037,,,,,,,,,,,EFFECT SELECT (ECHO)
+#,FX.SPIRAL,Button,B02B,,,,,,,,,,,EFFECT SELECT (SPIRAL)
+#,FX.REVERB,Button,B036,,,,,,,,,,,EFFECT SELECT (REVERB)
+#,FX.TRANS,Button,B035,,,,,,,,,,,EFFECT SELECT (TRANS)
+#,FX.FLANGER,Button,B032,,,,,,,,,,,EFFECT SELECT (FLANGER)
+#,FX.PITCH,Button,B02F,,,,,,,,,,,EFFECT SELECT (PITCH)
+#,FX.ROLL,Button,B02E,,,,,,,,,,,EFFECT SELECT (ROLL)
+#,FX.SelectCFB,Button,B028,,,,,,,,,,,EFFECT CH SELECT CF.B
+#,FX.SelectCFA,Button,B027,,,,,,,,,,,EFFECT CH SELECT CF.A
+#,FX.SelectMIC,Button,B026,,,,,,,,,,,EFFECT CH SELECT MIC
+#,FX.SelectAUX,Button,B020,,,,,,,,,,,EFFECT CH SELECT AUX
+#,FX.SelectCH1,Button,B022,,,,,,,,,,,EFFECT CH SELECT CH1
+#,FX.SelectCH2,Button,B023,,,,,,,,,,,EFFECT CH SELECT CH2
+#,FX.SelectMASTER,Button,B029,,,,,,,,,,,EFFECT CH SELECT MASTER
+#,FX.TIME,KnobSliderHiRes,B00D,,,,,,,,,,,EFFECT Time
+#,FX.LEVELDEPTH,Button,B05B,,,,,,,,,,,EFFECT LEVEL/DEPTH
+#,FX.ONOFF,Button,B072,,,,,,,,,,,EFFECT ON/OFF
+,,,,,,,,,,,,,,
+#SEND/RETURN,,,,,,,,,,,,,,
+#,SendReturnReturnType,Button,B070,,,,,,,,,,,AUX(0x00)/INSERT(0x7F)
+#,SendReturnLevel,Button,B071,,,,,,,,,,,LEVEL
+#,SendReturnOnOff,Button,B040,,,,,,,,,,,On/Off
+,,,,,,,,,,,,,,
+#AUX Input Select,,,,,,,,,,,,,,
+AUXInputSelect.PC,AUXInputSelect.PC,Button,904A,,,,,,,,,,RO,Select Aux Input to PC
+AUXInputSelect.Line,AUXInputSelect.Line,Button,904B,,,,,,,,,,RO,Select Aux Input to LINE
+AuxInputSelect.ReturnAUX,AuxInputSelect.ReturnAUX,Button,904C,,,,,,,,,,RO,Select Aux Input to RETURN
+,,,,,,,,,,,,,,
+#MIC,,,,,,,,,,,,,,
+#,MicLevel,KnobSlider,B01E,,,,,,,,,,Fast,
+#,MicTone,KnobSlider,B01F,,,,,,,,,,Fast,
+,,,,,,,,,,,,,,
+# SoundColorFX,,,,,,,,,,,,,,
+#,CFX.DUB_ECHO,Button,B06B,,,,,,,,,,,Sound Color FX (DUB ECHO)
+#,CFX.SWEEP,Button,B06A,,,,,,,,,,,Sound Color FX (SWEEP)
+#,CFX.NOISE,Button,B055,,,,,,,,,,,Sound Color FX (NOISE)
+#,CFX.FILTER,Button,B057,,,,,,,,,,,Sound Color FX (FILTER)
+#,CFX.PARAMETER,KnobSlider,B06C,,,,,,,,,,Max=127,Sound Color FX PARAMETER
+,,,,,,,,,,,,,,
+#HEADPHONES,,,,,,,,,,,,,,
+#,HeadphonesMix,KnobSlider,B01B,,,,,,,,,,,HEADPHONES MIXING
+#,HeadphonesVolume,KnobSlider,B01A,,,,,,,,,,,HEADPHONES LEVEL
+,,,,,,,,,,,,,,
+#USB Peer,,,,,,,,,,,,,,
+PeerUsbPortName.USBA,PeerUsbPortName.USBA,Button,904E,,,,,,,,,,RO,USB A
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

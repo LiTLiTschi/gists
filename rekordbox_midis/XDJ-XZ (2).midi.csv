@@ -1,0 +1,15 @@
+@file,1,XDJ-XZ (2)
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+# Mixer,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B40B,,,,,,,,,,Fast,Crossfader
+ChannelFader,ChannelFader,KnobSlider,,B411,B412,B413,B414,,,,,,,CH Fader
+InputSelect.USB,InputSelect.USB,Button,,,,943D,9441,,,,,,RO,Select INPUT to USB/PHONO/LINE(CH3/CH4)
+#InputSelect.LINE,InputSelect.LINE,Button,,,,943B,943F,,,,,,RO,Select INPUT to USB/PHONO/LINE(CH3/CH4)
+#InputSelect.PHONO,InputSelect.PHONO,Button,,,,943C,9440,,,,,,RO,Select INPUT to USB/PHONO/LINE(CH3/CH4)
+CrossfaderAssign,,KnobSlider,,B441,B442,B443,B444,,,,,,Max=127,CrossFaderAssign A(0x00)/Thru(0x40)/B(0x7F)
+,,,,,,,,,,,,,,
+SamplerVolume,AuxTrim,KnobSlider,B47A,,,,,,,,,,,Sampler Volume
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=2,

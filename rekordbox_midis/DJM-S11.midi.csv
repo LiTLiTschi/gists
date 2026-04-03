@@ -1,0 +1,494 @@
+@file,1,DJM-S11,,,,,,,,,,,,
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+# Browser,,,,,,,,,,,,,,
+Browse,Browse,Rotary,B040,,,,,,,,,,,Browse(Track/Folder Select)
+Browse,Browse,Rotary,B140,,,,,,,,,,,Browse(Track/Folder Select)
+Browse,Browse,Rotary,B240,,,,,,,,,,,Browse(Track/Folder Select)
+Browse,Browse,Rotary,B340,,,,,,,,,,,Browse(Track/Folder Select)
+Forward,Browse+Press,Button,9041,,,,,,,,,,,Library Forward (Folder Open)
+Forward,Browse+Press,Button,9141,,,,,,,,,,,Library Forward (Folder Open)
+Forward,Browse+Press,Button,9241,,,,,,,,,,,Library Forward (Folder Open)
+Forward,Browse+Press,Button,9341,,,,,,,,,,,Library Forward (Folder Open)
+Load,Load,Button,9046,0,1,2,3,,,,,,,Load to Deck / Instant Double (double click)
+AddToTagList,Load+Shift,Button,9047,,,,,,,,,,,Tag Track
+AddToTagList,Load+Shift,Button,9147,,,,,,,,,,,Tag Track
+Back,Back,Button,9068,,,,,,,,,,,Library Back (Folder Close)
+Back,Back,Button,9168,,,,,,,,,,,Library Back (Folder Close)
+Area,Back+Shift,Button,9067,,,,,,,,,,,Area (Change panel type from among several types)
+Area,Back+Shift,Button,9167,,,,,,,,,,,Area (Change panel type from among several types)
+,,,,,,,,,,,,,,
+# Loop,,,,,,,,,,,,,,
+AutoLoop,AutoLoop,Button,9014,0,1,,,9014,0,1,,,,Auto Loop On/Off
+ActiveLoop,AutoLoop+Shift,Button,9050,0,1,,,9050,0,1,,,,Loop Active/Non active
+LoopHalf,LoopHalf,Button,9012,0,1,,,9012,0,1,,,Fast,Loop Size Select (Half)
+LoopIn,LoopHalf+Shift,Button,9010,0,1,,,9010,0,1,,,Fast,Loop in/Loop in adjust
+LoopDouble,LoopDouble,Button,9013,0,1,,,9013,0,1,,,Fast,Loop Size Select (Double)
+LoopOut,LoopDouble+Shift,Button,9011,0,1,,,9011,0,1,,,Fast,Loop out/Loop out adjust
+,,,,,,,,,,,,,,
+# Mixer,,,,,,,,,,,,,,
+Shift,Shift,Button,963F,,,,,,,,,,RO,Shift
+CrossFader,CrossFader,KnobSliderHiRes,B61F,,,,,,,,,,Fast,Crossfader
+ChannelFader,ChannelFader,KnobSliderHiRes,B013,0,1,,,,,,,,,CH Fader
+ChannelFaderStartPlay,ChannelFaderStartPlay,Button,9051,0,1,,,,,,,,RO,CH Fader Start (PLAY)
+ChannelFaderStartHotCue,ChannelFaderStartHotCue,Button,9053,0,1,,,,,,,,RO,CH Fader Start (HOT CUE)
+ChannelFaderStartCue,ChannelFaderStartCue,Button,9052,0,1,,,,,,,,RO,CH Fader Start (CUE)
+BpmInformation,BpmInformation,KnobSliderHiRes,B002,0,1,2,3,,,,,,RO,
+,,,,,,,,,,,,,,
+# Effect,,,,,,,,,,,,,,
+FX1-1,FX1-1,KnobSliderHiRes,B402,,,,,,,,,,,FX1-1 Effect Depth
+FX1-1,FX1-1+Shift,KnobSliderHiRes,B412,,,,,,,,,,,FX1-1 Effect Depth
+CH1_FX1-1OnMomentary,CH1_FX1-1On,Button,9451,,,,,9451,,,,,,CH1 FX1-1 Effect On/Off
+CH2_FX1-1OnMomentary,CH2_FX1-1On,Button,9457,,,,,9457,,,,,,CH2 FX1-1 Effect On/Off
+Sampler_FX1-1OnMomentary,Sampler_FX1-1On,Button,945D,,,,,945D,,,,,,Sampler FX1-1 Effect On/Off
+FX1-1Select,Browse+FX1-1,Rotary,B450,,,,,,,,,,,FX select
+,,,,,,,,,,,,,,
+FX1-2,FX1-2,KnobSliderHiRes,B404,,,,,,,,,,,FX1-2 Effect Depth
+FX1-2,FX1-2+Shift,KnobSliderHiRes,B414,,,,,,,,,,,FX1-2 Effect Depth
+CH1_FX1-2OnMomentary,CH1_FX1-2On,Button,9452,,,,,9452,,,,,,CH1 FX1-2 Effect On/Off
+CH2_FX1-2OnMomentary,CH2_FX1-2On,Button,9458,,,,,9458,,,,,,CH2 FX1-2 Effect On/Off
+Sampler_FX1-2OnMomentary,Sampler_FX1-2On,Button,945E,,,,,945E,,,,,,Sampler FX1-2 Effect On/Off
+FX1-2Select,Browse+FX1-2,Rotary,B451,,,,,,,,,,,FX select
+,,,,,,,,,,,,,,
+FX1-3,FX1-3,KnobSliderHiRes,B406,,,,,,,,,,,FX1-3 Effect Depth
+FX1-3,FX1-3+Shift,KnobSliderHiRes,B416,,,,,,,,,,,FX1-3 Effect Depth
+CH1_FX1-3OnMomentary,CH1_FX1-3On,Button,9453,,,,,9453,,,,,,CH1 FX1-3 Effect On/Off
+CH2_FX1-3OnMomentary,CH2_FX1-3On,Button,9459,,,,,9459,,,,,,CH2 FX1-3 Effect On/Off
+Sampler_FX1-3OnMomentary,Sampler_FX1-3On,Button,945F,,,,,945F,,,,,,Sampler FX1-3 Effect On/Off
+FX1-3Select,Browse+FX1-3,Rotary,B452,,,,,,,,,,,FX select
+,,,,,,,,,,,,,,
+FX1BeatDown,FX1BeatDown,Button,9406,,,,,,,,,,,FX1 Effect beat down
+FX1BeatUp,FX1BeatUp,Button,9407,,,,,,,,,,,FX1 Effect beat up
+FX1BeatMultiplier,FX1BeatMultiplier,Indicator,,,,,,B464,,,,,,FX1 BeatMultiplier No
+,,,,,,,,,,,,,,
+FX2-1,FX2-1,KnobSliderHiRes,B502,,,,,,,,,,,FX2-1 Effect Depth
+FX2-1,FX2-1+Shift,KnobSliderHiRes,B512,,,,,,,,,,,FX2-1 Effect Depth
+CH1_FX2-1OnMomentary,CH1_FX2-1On,Button,9554,,,,,9554,,,,,,CH1 FX2-1 Effect On/Off
+CH2_FX2-1OnMomentary,CH2_FX2-1On,Button,955A,,,,,955A,,,,,,CH2FX2-1 Effect On/Off
+Sampler_FX2-1OnMomentary,Sampler_FX2-1On,Button,9560,,,,,9560,,,,,,Sampler FX2-1 Effect On/Off
+FX2-1Select,Browse+FX2-1,Rotary,B553,,,,,,,,,,,FX select
+,,,,,,,,,,,,,,
+FX2-2,FX2-2,KnobSliderHiRes,B504,,,,,,,,,,,FX2-2 Effect Depth
+FX2-2,FX2-2+Shift,KnobSliderHiRes,B514,,,,,,,,,,,FX2-2 Effect Depth
+CH1_FX2-2OnMomentary,CH1_FX2-2On,Button,9555,,,,,9555,,,,,,CH1 FX2-2 Effect On/Off
+CH2_FX2-2OnMomentary,CH2_FX2-2On,Button,955B,,,,,955B,,,,,,CH2 FX2-2 Effect On/Off
+Sampler_FX2-2OnMomentary,Sampler_FX2-2On,Button,9561,,,,,9561,,,,,,Sampler FX2-2 Effect On/Off
+FX2-2Select,Browse+FX2-2,Rotary,B554,,,,,,,,,,,FX select
+,,,,,,,,,,,,,,
+FX2-3,FX2-3,KnobSliderHiRes,B506,,,,,,,,,,,FX2-3 Effect Depth
+FX2-3,FX2-3+Shift,KnobSliderHiRes,B516,,,,,,,,,,,FX2-3 Effect Depth
+CH1_FX2-3OnMomentary,CH1_FX2-3On,Button,9556,,,,,9556,,,,,,CH1 FX2-3 Effect On/Off
+CH2_FX2-3OnMomentary,CH2_FX2-3On,Button,955C,,,,,955C,,,,,,CH2 FX2-3 Effect On/Off
+Sampler_FX2-3OnMomentary,Sampler_FX2-3On,Button,9562,,,,,9562,,,,,,Sampler FX2-3 Effect On/Off
+FX2-3Select,Browse+FX2-3,Rotary,B555,,,,,,,,,,,FX select
+,,,,,,,,,,,,,,
+FX2BeatDown,FX2BeatDown,Button,9506,,,,,,,,,,,FX2 Effect beat down
+FX2BeatUp,FX2BeatUp,Button,9507,,,,,,,,,,,FX2 Effect beat up
+FX2BeatMultiplier,FX2BeatMultiplier,Indicator,,,,,,B564,,,,,,FX2 BeatMultiplier No
+,,,,,,,,,,,,,,
+FxBankALoad,SamplerEffectOn+Shift,Button,967B,,,,,967B,,,,,,FX BANK A LOAD
+FxBankBLoad,AuxEffectOn+Shift,Button,967C,,,,,967C,,,,,,FX BANK B LOAD
+FxBankCLoad,AuxEffectOn+Shift,Button,9679,,,,,9679,,,,,,FX BANK C LOAD
+FxBankDLoad,AuxEffectOn+Shift,Button,967A,,,,,967A,,,,,,FX BANK D LOAD
+FxBpmAutoMode,Tap,Button,9616,,,,,,,,,,,
+FxBpmTapMode,Tap,Button,960A,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Fx1-1_BeatTarget,Fx1-1_BeatTarget,Button,9470,,,,,,,,,,RO,
+Fx1-2_BeatTarget,Fx1-2_BeatTarget,Button,9471,,,,,,,,,,RO,
+Fx1-3_BeatTarget,Fx1-3_BeatTarget,Button,9472,,,,,,,,,,RO,
+Fx2-1_BeatTarget,Fx2-1_BeatTarget,Button,9570,,,,,,,,,,RO,
+Fx2-2_BeatTarget,Fx2-2_BeatTarget,Button,9571,,,,,,,,,,RO,
+Fx2-3_BeatTarget,Fx2-3_BeatTarget,Button,9572,,,,,,,,,,RO,
+DeselectAllFxBeatTarget,DeselectAllFxBeatTarget,Button,967D,,,,,,,,,,RO,All APP FX is Deselected
+,,,,,,,,,,,,,,
+SmoothEchoTiming,SmoothEchoTiming,Indicator,,,,,,B00A,0,1,2,3,RO,SMOOTH ECHO TIMING Notification
+,,,,,,,,,,,,,,
+# Performance,,,,,,,,,,,,,,
+PageLeft_PadMode1,,Button,9024,0,1,,,9024,0,1,,,,
+Parameter1Left_Sampler,,Button,9001,0,1,,,9001,0,1,,,,
+PageLeft_PadMode2,,Button,9025,0,1,,,9025,0,1,,,,
+Parameter1Left_Sampler,,Button,9002,0,1,,,9002,0,1,,,,
+PageLeft_PadMode3,,Button,9026,0,1,,,9026,0,1,,,,
+Parameter1Left_Sampler,,Button,9003,0,1,,,9003,0,1,,,,
+PageLeft_PadMode4,,Button,9027,0,1,,,9027,0,1,,,,
+Parameter1Left_Sampler,,Button,9004,0,1,,,9004,0,1,,,,
+PageLeft_PadMode5,,Button,9028,0,1,,,9028,0,1,,,,
+Parameter1Left_Sampler,,Button,9005,0,1,,,9005,0,1,,,,
+PageLeft_PadMode6,,Button,9029,0,1,,,9029,0,1,,,,
+Parameter1Left_Sampler,,Button,9006,0,1,,,9006,0,1,,,,
+PageLeft_PadMode7,,Button,902A,0,1,,,902A,0,1,,,,
+Parameter1Left_Sampler,,Button,9007,0,1,,,9007,0,1,,,,
+PageLeft_PadMode8,,Button,902B,0,1,,,902B,0,1,,,,
+Parameter1Left_Sampler,,Button,9008,0,1,,,9008,0,1,,,,
+,,,,,,,,,,,,,,
+PageRight_PadMode1,,Button,902C,0,1,,,902C,0,1,,,,
+Parameter1Right_Sampler,,Button,9009,0,1,,,9009,0,1,,,,
+PageRight_PadMode2,,Button,902D,0,1,,,902D,0,1,,,,
+Parameter1Right_Sampler,,Button,907A,0,1,,,907A,0,1,,,,
+PageRight_PadMode3,,Button,902E,0,1,,,902E,0,1,,,,
+Parameter1Right_Sampler,,Button,907B,0,1,,,907B,0,1,,,,
+PageRight_PadMode4,,Button,902F,0,1,,,902F,0,1,,,,
+Parameter1Right_Sampler,,Button,907C,0,1,,,907C,0,1,,,,
+PageRight_PadMode5,,Button,9030,0,1,,,9030,0,1,,,,
+Parameter1Right_Sampler,,Button,907D,0,1,,,907D,0,1,,,,
+PageRight_PadMode6,,Button,9031,0,1,,,9031,0,1,,,,
+Parameter1Right_Sampler,,Button,907E,0,1,,,907E,0,1,,,,
+PageRight_PadMode7,,Button,9032,0,1,,,9032,0,1,,,,
+Parameter1Right_Sampler,,Button,907F,0,1,,,907F,0,1,,,,
+PageRight_PadMode8,,Button,9033,0,1,,,9033,0,1,,,,
+Parameter1Right_Sampler,,Button,9000,0,1,,,9000,0,1,,,,
+,,,,,,,,,,,,,,
+PadMode1,HotCue,Button,901B,0,1,,,901B,0,1,,,Fast,
+PadMode2,Roll,Button,901E,0,1,,,901E,0,1,,,Fast,
+PadMode3,SavedLoop,Button,9020,0,1,,,9020,0,1,,,Fast,
+PadMode4,Sampler,Button,9022,0,1,,,9022,0,1,,,Fast,
+PadMode5,PitchPlay,Button,9069,0,1,,,9069,0,1,,,Fast,
+PadMode6,SlicerLoop,Button,906B,0,1,,,906B,0,1,,,Fast,
+PadMode7,SavedFlip,Button,906D,0,1,,,906D,0,1,,,Fast,
+PadMode8,ScratchBank,Button,906F,0,1,,,906F,0,1,,,Fast,
+,,,,,,,,,,,,,,
+PAD1_PadMode1,PAD1_PadMode1,Pad,,9700,9800,,,,9700,9800,,,Fast,
+PAD1_PadMode1+Shift,PAD1_PadMode1+Shift,Pad,,9708,9808,,,,9708,9808,,,Fast,
+PAD1_PadMode2,PAD1_PadMode2,Pad,,9710,9810,,,,9710,9810,,,Fast,
+PAD1_PadMode2+Shift,PAD1_PadMode2+Shift,Pad,,9718,9818,,,,9718,9818,,,Fast,
+PAD1_PadMode3,PAD1_PadMode3,Pad,,9720,9820,,,,9720,9820,,,Fast,
+PAD1_PadMode3+Shift,PAD1_PadMode3+Shift,Pad,,9728,9828,,,,9728,9828,,,Fast,
+PAD1_PadMode4,PAD1_PadMode4,Pad,,9730,9830,,,,9730,9830,,,Fast,
+PAD1_PadMode4+Shift,PAD1_PadMode4+Shift,Pad,,9738,9838,,,,9738,9838,,,Fast,
+PAD1_PadMode5,PAD1_PadMode5,Pad,,9740,9840,,,,9740,9840,,,Fast,
+PAD1_PadMode5+Shift,PAD1_PadMode5+Shift,Pad,,9748,9848,,,,9748,9848,,,Fast,
+PAD1_PadMode6,PAD1_PadMode6,Pad,,9750,9850,,,,9750,9850,,,Fast,
+PAD1_PadMode6+Shift,PAD1_PadMode6+Shift,Pad,,9758,9858,,,,9758,9858,,,Fast,
+PAD1_PadMode7,PAD1_PadMode7,Pad,,9760,9860,,,,9760,9860,,,Fast,
+PAD1_PadMode7+Shift,PAD1_PadMode7+Shift,Pad,,9768,9868,,,,9768,9868,,,Fast,
+PAD1_PadMode8,PAD1_PadMode8,Pad,,9770,9870,,,,9770,9870,,,Fast,
+PAD1_PadMode8+Shift,PAD1_PadMode8+Shift,Pad,,9778,9878,,,,9778,9878,,,Fast,
+,,,,,,,,,,,,,,
+PAD2_PadMode1,PAD2_PadMode1,Pad,,9701,9801,,,,9701,9801,,,Fast,
+PAD2_PadMode1+Shift,PAD2_PadMode1+Shift,Pad,,9709,9809,,,,9709,9809,,,Fast,
+PAD2_PadMode2,PAD2_PadMode2,Pad,,9711,9811,,,,9711,9811,,,Fast,
+PAD2_PadMode2+Shift,PAD2_PadMode2+Shift,Pad,,9719,9819,,,,9719,9819,,,Fast,
+PAD2_PadMode3,PAD2_PadMode3,Pad,,9721,9821,,,,9721,9821,,,Fast,
+PAD2_PadMode3+Shift,PAD2_PadMode3+Shift,Pad,,9729,9829,,,,9729,9829,,,Fast,
+PAD2_PadMode4,PAD2_PadMode4,Pad,,9731,9831,,,,9731,9831,,,Fast,
+PAD2_PadMode4+Shift,PAD2_PadMode4+Shift,Pad,,9739,9839,,,,9739,9839,,,Fast,
+PAD2_PadMode5,PAD2_PadMode5,Pad,,9741,9841,,,,9741,9841,,,Fast,
+PAD2_PadMode5+Shift,PAD2_PadMode5+Shift,Pad,,9749,9849,,,,9749,9849,,,Fast,
+PAD2_PadMode6,PAD2_PadMode6,Pad,,9751,9851,,,,9751,9851,,,Fast,
+PAD2_PadMode6+Shift,PAD2_PadMode6+Shift,Pad,,9759,9859,,,,9759,9859,,,Fast,
+PAD2_PadMode7,PAD2_PadMode7,Pad,,9761,9861,,,,9761,9861,,,Fast,
+PAD2_PadMode7+Shift,PAD2_PadMode7+Shift,Pad,,9769,9869,,,,9769,9869,,,Fast,
+PAD2_PadMode8,PAD2_PadMode8,Pad,,9771,9871,,,,9771,9871,,,Fast,
+PAD2_PadMode8+Shift,PAD2_PadMode8+Shift,Pad,,9779,9879,,,,9779,9879,,,Fast,
+,,,,,,,,,,,,,,
+PAD3_PadMode1,PAD3_PadMode1,Pad,,9702,9802,,,,9702,9802,,,Fast,
+PAD3_PadMode1+Shift,PAD3_PadMode1+Shift,Pad,,970A,980A,,,,970A,980A,,,Fast,
+PAD3_PadMode2,PAD3_PadMode2,Pad,,9712,9812,,,,9712,9812,,,Fast,
+PAD3_PadMode2+Shift,PAD3_PadMode2+Shift,Pad,,971A,981A,,,,971A,981A,,,Fast,
+PAD3_PadMode3,PAD3_PadMode3,Pad,,9722,9822,,,,9722,9822,,,Fast,
+PAD3_PadMode3+Shift,PAD3_PadMode3+Shift,Pad,,972A,982A,,,,972A,982A,,,Fast,
+PAD3_PadMode4,PAD3_PadMode4,Pad,,9732,9832,,,,9732,9832,,,Fast,
+PAD3_PadMode4+Shift,PAD3_PadMode4+Shift,Pad,,973A,983A,,,,973A,983A,,,Fast,
+PAD3_PadMode5,PAD3_PadMode5,Pad,,9742,9842,,,,9742,9842,,,Fast,
+PAD3_PadMode5+Shift,PAD3_PadMode5+Shift,Pad,,974A,984A,,,,974A,984A,,,Fast,
+PAD3_PadMode6,PAD3_PadMode6,Pad,,9752,9852,,,,9752,9852,,,Fast,
+PAD3_PadMode6+Shift,PAD3_PadMode6+Shift,Pad,,975A,985A,,,,975A,985A,,,Fast,
+PAD3_PadMode7,PAD3_PadMode7,Pad,,9762,9862,,,,9762,9862,,,Fast,
+PAD3_PadMode7+Shift,PAD3_PadMode7+Shift,Pad,,976A,986A,,,,976A,986A,,,Fast,
+PAD3_PadMode8,PAD3_PadMode8,Pad,,9772,9872,,,,9772,9872,,,Fast,
+PAD3_PadMode8+Shift,PAD3_PadMode8+Shift,Pad,,977A,987A,,,,977A,987A,,,Fast,
+,,,,,,,,,,,,,,
+PAD4_PadMode1,PAD4_PadMode1,Pad,,9703,9803,,,,9703,9803,,,Fast,
+PAD4_PadMode1+Shift,PAD4_PadMode1+Shift,Pad,,970B,980B,,,,970B,980B,,,Fast,
+PAD4_PadMode2,PAD4_PadMode2,Pad,,9713,9813,,,,9713,9813,,,Fast,
+PAD4_PadMode2+Shift,PAD4_PadMode2+Shift,Pad,,971B,981B,,,,971B,981B,,,Fast,
+PAD4_PadMode3,PAD4_PadMode3,Pad,,9723,9823,,,,9723,9823,,,Fast,
+PAD4_PadMode3+Shift,PAD4_PadMode3+Shift,Pad,,972B,982B,,,,972B,982B,,,Fast,
+PAD4_PadMode4,PAD4_PadMode4,Pad,,9733,9833,,,,9733,9833,,,Fast,
+PAD4_PadMode4+Shift,PAD4_PadMode4+Shift,Pad,,973B,983B,,,,973B,983B,,,Fast,
+PAD4_PadMode5,PAD4_PadMode5,Pad,,9743,9843,,,,9743,9843,,,Fast,
+PAD4_PadMode5+Shift,PAD4_PadMode5+Shift,Pad,,974B,984B,,,,974B,984B,,,Fast,
+PAD4_PadMode6,PAD4_PadMode6,Pad,,9753,9853,,,,9753,9853,,,Fast,
+PAD4_PadMode6+Shift,PAD4_PadMode6+Shift,Pad,,975B,985B,,,,975B,985B,,,Fast,
+PAD4_PadMode7,PAD4_PadMode7,Pad,,9763,9863,,,,9763,9863,,,Fast,
+PAD4_PadMode7+Shift,PAD4_PadMode7+Shift,Pad,,976B,986B,,,,976B,986B,,,Fast,
+PAD4_PadMode8,PAD4_PadMode8,Pad,,9773,9873,,,,9773,9873,,,Fast,
+PAD4_PadMode8+Shift,PAD4_PadMode8+Shift,Pad,,977B,987B,,,,977B,987B,,,Fast,
+,,,,,,,,,,,,,,
+PAD5_PadMode1,PAD5_PadMode1,Pad,,9704,9804,,,,9704,9804,,,Fast,
+PAD5_PadMode1+Shift,PAD5_PadMode1+Shift,Pad,,970C,980C,,,,970C,980C,,,Fast,
+PAD5_PadMode2,PAD5_PadMode2,Pad,,9714,9814,,,,9714,9814,,,Fast,
+PAD5_PadMode2+Shift,PAD5_PadMode2+Shift,Pad,,971C,981C,,,,971C,981C,,,Fast,
+PAD5_PadMode3,PAD5_PadMode3,Pad,,9724,9824,,,,9724,9824,,,Fast,
+PAD5_PadMode3+Shift,PAD5_PadMode3+Shift,Pad,,972C,982C,,,,972C,982C,,,Fast,
+PAD5_PadMode4,PAD5_PadMode4,Pad,,9734,9834,,,,9734,9834,,,Fast,
+PAD5_PadMode4+Shift,PAD5_PadMode4+Shift,Pad,,973C,983C,,,,973C,983C,,,Fast,
+PAD5_PadMode5,PAD5_PadMode5,Pad,,9744,9844,,,,9744,9844,,,Fast,
+PAD5_PadMode5+Shift,PAD5_PadMode5+Shift,Pad,,974C,984C,,,,974C,984C,,,Fast,
+PAD5_PadMode6,PAD5_PadMode6,Pad,,9754,9854,,,,9754,9854,,,Fast,
+PAD5_PadMode6+Shift,PAD5_PadMode6+Shift,Pad,,975C,985C,,,,975C,985C,,,Fast,
+PAD5_PadMode7,PAD5_PadMode7,Pad,,9764,9864,,,,9764,9864,,,Fast,
+PAD5_PadMode7+Shift,PAD5_PadMode7+Shift,Pad,,976C,986C,,,,976C,986C,,,Fast,
+PAD5_PadMode8,PAD5_PadMode8,Pad,,9774,9874,,,,9774,9874,,,Fast,
+PAD5_PadMode8+Shift,PAD5_PadMode8+Shift,Pad,,977C,987C,,,,977C,987C,,,Fast,
+,,,,,,,,,,,,,,
+PAD6_PadMode1,PAD6_PadMode1,Pad,,9705,9805,,,,9705,9805,,,Fast,
+PAD6_PadMode1+Shift,PAD6_PadMode1+Shift,Pad,,970D,980D,,,,970D,980D,,,Fast,
+PAD6_PadMode2,PAD6_PadMode2,Pad,,9715,9815,,,,9715,9815,,,Fast,
+PAD6_PadMode2+Shift,PAD6_PadMode2+Shift,Pad,,971D,981D,,,,971D,981D,,,Fast,
+PAD6_PadMode3,PAD6_PadMode3,Pad,,9725,9825,,,,9725,9825,,,Fast,
+PAD6_PadMode3+Shift,PAD6_PadMode3+Shift,Pad,,972D,982D,,,,972D,982D,,,Fast,
+PAD6_PadMode4,PAD6_PadMode4,Pad,,9735,9835,,,,9735,9835,,,Fast,
+PAD6_PadMode4+Shift,PAD6_PadMode4+Shift,Pad,,973D,983D,,,,973D,983D,,,Fast,
+PAD6_PadMode5,PAD6_PadMode5,Pad,,9745,9845,,,,9745,9845,,,Fast,
+PAD6_PadMode5+Shift,PAD6_PadMode5+Shift,Pad,,974D,984D,,,,974D,984D,,,Fast,
+PAD6_PadMode6,PAD6_PadMode6,Pad,,9755,9855,,,,9755,9855,,,Fast,
+PAD6_PadMode6+Shift,PAD6_PadMode6+Shift,Pad,,975D,985D,,,,975D,985D,,,Fast,
+PAD6_PadMode7,PAD6_PadMode7,Pad,,9765,9865,,,,9765,9865,,,Fast,
+PAD6_PadMode7+Shift,PAD6_PadMode7+Shift,Pad,,976D,986D,,,,976D,986D,,,Fast,
+PAD6_PadMode8,PAD6_PadMode8,Pad,,9775,9875,,,,9775,9875,,,Fast,
+PAD6_PadMode8+Shift,PAD6_PadMode8+Shift,Pad,,977D,987D,,,,977D,987D,,,Fast,
+,,,,,,,,,,,,,,
+PAD7_PadMode1,PAD7_PadMode1,Pad,,9706,9806,,,,9706,9806,,,Fast,
+PAD7_PadMode1+Shift,PAD7_PadMode1+Shift,Pad,,970E,980E,,,,970E,980E,,,Fast,
+PAD7_PadMode2,PAD7_PadMode2,Pad,,9716,9816,,,,9716,9816,,,Fast,
+PAD7_PadMode2+Shift,PAD7_PadMode2+Shift,Pad,,971E,981E,,,,971E,981E,,,Fast,
+PAD7_PadMode3,PAD7_PadMode3,Pad,,9726,9826,,,,9726,9826,,,Fast,
+PAD7_PadMode3+Shift,PAD7_PadMode3+Shift,Pad,,972E,982E,,,,972E,982E,,,Fast,
+PAD7_PadMode4,PAD7_PadMode4,Pad,,9736,9836,,,,9736,9836,,,Fast,
+PAD7_PadMode4+Shift,PAD7_PadMode4+Shift,Pad,,973E,983E,,,,973E,983E,,,Fast,
+PAD7_PadMode5,PAD7_PadMode5,Pad,,9746,9846,,,,9746,9846,,,Fast,
+PAD7_PadMode5+Shift,PAD7_PadMode5+Shift,Pad,,974E,984E,,,,974E,984E,,,Fast,
+PAD7_PadMode6,PAD7_PadMode6,Pad,,9756,9856,,,,9756,9856,,,Fast,
+PAD7_PadMode6+Shift,PAD7_PadMode6+Shift,Pad,,975E,985E,,,,975E,985E,,,Fast,
+PAD7_PadMode7,PAD7_PadMode7,Pad,,9766,9866,,,,9766,9866,,,Fast,
+PAD7_PadMode7+Shift,PAD7_PadMode7+Shift,Pad,,976E,986E,,,,976E,986E,,,Fast,
+PAD7_PadMode8,PAD7_PadMode8,Pad,,9776,9876,,,,9776,9876,,,Fast,
+PAD7_PadMode8+Shift,PAD7_PadMode8+Shift,Pad,,977E,987E,,,,977E,987E,,,Fast,
+,,,,,,,,,,,,,,
+PAD8_PadMode1,PAD8_PadMode1,Pad,,9707,9807,,,,9707,9807,,,Fast,
+PAD8_PadMode1+Shift,PAD8_PadMode1+Shift,Pad,,970F,980F,,,,970F,980F,,,Fast,
+PAD8_PadMode2,PAD8_PadMode2,Pad,,9717,9817,,,,9717,9817,,,Fast,
+PAD8_PadMode2+Shift,PAD8_PadMode2+Shift,Pad,,971F,981F,,,,971F,981F,,,Fast,
+PAD8_PadMode3,PAD8_PadMode3,Pad,,9727,9827,,,,9727,9827,,,Fast,
+PAD8_PadMode3+Shift,PAD8_PadMode3+Shift,Pad,,972F,982F,,,,972F,982F,,,Fast,
+PAD8_PadMode4,PAD8_PadMode4,Pad,,9737,9837,,,,9737,9837,,,Fast,
+PAD8_PadMode4+Shift,PAD8_PadMode4+Shift,Pad,,973F,983F,,,,973F,983F,,,Fast,
+PAD8_PadMode5,PAD8_PadMode5,Pad,,9747,9847,,,,9747,9847,,,Fast,
+PAD8_PadMode5+Shift,PAD8_PadMode5+Shift,Pad,,974F,984F,,,,974F,984F,,,Fast,
+PAD8_PadMode6,PAD8_PadMode6,Pad,,9757,9857,,,,9757,9857,,,Fast,
+PAD8_PadMode6+Shift,PAD8_PadMode6+Shift,Pad,,975F,985F,,,,975F,985F,,,Fast,
+PAD8_PadMode7,PAD8_PadMode7,Pad,,9767,9867,,,,9767,9867,,,Fast,
+PAD8_PadMode7+Shift,PAD8_PadMode7+Shift,Pad,,976F,986F,,,,976F,986F,,,Fast,
+PAD8_PadMode8,PAD8_PadMode8,Pad,,9777,9877,,,,9777,9877,,,Fast,
+PAD8_PadMode8+Shift,PAD8_PadMode8+Shift,Pad,,977F,987F,,,,977F,987F,,,Fast,
+,,,,,,,,,,,,,,
+PAD9_PadMode1,PAD9_PadMode1,Pad,,9D00,9E00,,,,9D00,9E00,,,Fast,
+PAD9_PadMode1+Shift,PAD9_PadMode1+Shift,Pad,,9D08,9E08,,,,9D08,9E08,,,Fast,
+PAD9_PadMode2,PAD9_PadMode2,Pad,,9D10,9E10,,,,9D10,9E10,,,Fast,
+PAD9_PadMode2+Shift,PAD9_PadMode2+Shift,Pad,,9D18,9E18,,,,9D18,9E18,,,Fast,
+PAD9_PadMode3,PAD9_PadMode3,Pad,,9D20,9E20,,,,9D20,9E20,,,Fast,
+PAD9_PadMode3+Shift,PAD9_PadMode3+Shift,Pad,,9D28,9E28,,,,9D28,9E28,,,Fast,
+PAD9_PadMode4,PAD9_PadMode4,Pad,,9D30,9E30,,,,9D30,9E30,,,Fast,
+PAD9_PadMode4+Shift,PAD9_PadMode4+Shift,Pad,,9D38,9E38,,,,9D38,9E38,,,Fast,
+PAD9_PadMode5,PAD9_PadMode5,Pad,,9B00,9C00,,,,9B00,9C00,,,Fast,
+PAD9_PadMode5+Shift,PAD9_PadMode5+Shift,Pad,,9B08,9C08,,,,9B08,9C08,,,Fast,
+PAD9_PadMode6,PAD9_PadMode6,Pad,,9B10,9C10,,,,9B10,9C10,,,Fast,
+PAD9_PadMode6+Shift,PAD9_PadMode6+Shift,Pad,,9B18,9C18,,,,9B18,9C18,,,Fast,
+PAD9_PadMode7,PAD9_PadMode7,Pad,,9B20,9C20,,,,9B20,9C20,,,Fast,
+PAD9_PadMode7+Shift,PAD9_PadMode7+Shift,Pad,,9B28,9C28,,,,9B28,9C28,,,Fast,
+PAD9_PadMode8,PAD9_PadMode8,Pad,,9B30,9C30,,,,9B30,9C30,,,Fast,
+PAD9_PadMode8+Shift,PAD9_PadMode8+Shift,Pad,,9B38,9C38,,,,9B38,9C38,,,Fast,
+,,,,,,,,,,,,,,
+PAD10_PadMode1,PAD10_PadMode1,Pad,,9D01,9E01,,,,9D01,9E01,,,Fast,
+PAD10_PadMode1+Shift,PAD10_PadMode1+Shift,Pad,,9D09,9E09,,,,9D09,9E09,,,Fast,
+PAD10_PadMode2,PAD10_PadMode2,Pad,,9D11,9E11,,,,9D11,9E11,,,Fast,
+PAD10_PadMode2+Shift,PAD10_PadMode2+Shift,Pad,,9D19,9E19,,,,9D19,9E19,,,Fast,
+PAD10_PadMode3,PAD10_PadMode3,Pad,,9D21,9E21,,,,9D21,9E21,,,Fast,
+PAD10_PadMode3+Shift,PAD10_PadMode3+Shift,Pad,,9D29,9E29,,,,9D29,9E29,,,Fast,
+PAD10_PadMode4,PAD10_PadMode4,Pad,,9D31,9E31,,,,9D31,9E31,,,Fast,
+PAD10_PadMode4+Shift,PAD10_PadMode4+Shift,Pad,,9D39,9E39,,,,9D39,9E39,,,Fast,
+PAD10_PadMode5,PAD10_PadMode5,Pad,,9B01,9C01,,,,9B01,9C01,,,Fast,
+PAD10_PadMode5+Shift,PAD10_PadMode5+Shift,Pad,,9B09,9C09,,,,9B09,9C09,,,Fast,
+PAD10_PadMode6,PAD10_PadMode6,Pad,,9B11,9C11,,,,9B11,9C11,,,Fast,
+PAD10_PadMode6+Shift,PAD10_PadMode6+Shift,Pad,,9B19,9C19,,,,9B19,9C19,,,Fast,
+PAD10_PadMode7,PAD10_PadMode7,Pad,,9B21,9C21,,,,9B21,9C21,,,Fast,
+PAD10_PadMode7+Shift,PAD10_PadMode7+Shift,Pad,,9B29,9C29,,,,9B29,9C29,,,Fast,
+PAD10_PadMode8,PAD10_PadMode8,Pad,,9B31,9C31,,,,9B31,9C31,,,Fast,
+PAD10_PadMode8+Shift,PAD10_PadMode8+Shift,Pad,,9B39,9C39,,,,9B39,9C39,,,Fast,
+,,,,,,,,,,,,,,
+PAD11_PadMode1,PAD11_PadMode1,Pad,,9D02,9E02,,,,9D02,9E02,,,Fast,
+PAD11_PadMode1+Shift,PAD11_PadMode1+Shift,Pad,,9D0A,9E0A,,,,9D0A,9E0A,,,Fast,
+PAD11_PadMode2,PAD11_PadMode2,Pad,,9D12,9E12,,,,9D12,9E12,,,Fast,
+PAD11_PadMode2+Shift,PAD11_PadMode2+Shift,Pad,,9D1A,9E1A,,,,9D1A,9E1A,,,Fast,
+PAD11_PadMode3,PAD11_PadMode3,Pad,,9D22,9E22,,,,9D22,9E22,,,Fast,
+PAD11_PadMode3+Shift,PAD11_PadMode3+Shift,Pad,,9D2A,9E2A,,,,9D2A,9E2A,,,Fast,
+PAD11_PadMode4,PAD11_PadMode4,Pad,,9D32,9E32,,,,9D32,9E32,,,Fast,
+PAD11_PadMode4+Shift,PAD11_PadMode4+Shift,Pad,,9D3A,9E3A,,,,9D3A,9E3A,,,Fast,
+PAD11_PadMode5,PAD11_PadMode5,Pad,,9B02,9C02,,,,9B02,9C02,,,Fast,
+PAD11_PadMode5+Shift,PAD11_PadMode5+Shift,Pad,,9B0A,9C0A,,,,9B0A,9C0A,,,Fast,
+PAD11_PadMode6,PAD11_PadMode6,Pad,,9B12,9C12,,,,9B12,9C12,,,Fast,
+PAD11_PadMode6+Shift,PAD11_PadMode6+Shift,Pad,,9B1A,9C1A,,,,9B1A,9C1A,,,Fast,
+PAD11_PadMode7,PAD11_PadMode7,Pad,,9B22,9C22,,,,9B22,9C22,,,Fast,
+PAD11_PadMode7+Shift,PAD11_PadMode7+Shift,Pad,,9B2A,9C2A,,,,9B2A,9C2A,,,Fast,
+PAD11_PadMode8,PAD11_PadMode8,Pad,,9B32,9C32,,,,9B32,9C32,,,Fast,
+PAD11_PadMode8+Shift,PAD11_PadMode8+Shift,Pad,,9B3A,9C3A,,,,9B3A,9C3A,,,Fast,
+,,,,,,,,,,,,,,
+PAD12_PadMode1,PAD12_PadMode1,Pad,,9D03,9E03,,,,9D03,9E03,,,Fast,
+PAD12_PadMode1+Shift,PAD12_PadMode1+Shift,Pad,,9D0B,9E0B,,,,9D0B,9E0B,,,Fast,
+PAD12_PadMode2,PAD12_PadMode2,Pad,,9D13,9E13,,,,9D13,9E13,,,Fast,
+PAD12_PadMode2+Shift,PAD12_PadMode2+Shift,Pad,,9D1B,9E1B,,,,9D1B,9E1B,,,Fast,
+PAD12_PadMode3,PAD12_PadMode3,Pad,,9D23,9E23,,,,9D23,9E23,,,Fast,
+PAD12_PadMode3+Shift,PAD12_PadMode3+Shift,Pad,,9D2B,9E2B,,,,9D2B,9E2B,,,Fast,
+PAD12_PadMode4,PAD12_PadMode4,Pad,,9D33,9E33,,,,9D33,9E33,,,Fast,
+PAD12_PadMode4+Shift,PAD12_PadMode4+Shift,Pad,,9D3B,9E3B,,,,9D3B,9E3B,,,Fast,
+PAD12_PadMode5,PAD12_PadMode5,Pad,,9B03,9C03,,,,9B03,9C03,,,Fast,
+PAD12_PadMode5+Shift,PAD12_PadMode5+Shift,Pad,,9B0B,9C0B,,,,9B0B,9C0B,,,Fast,
+PAD12_PadMode6,PAD12_PadMode6,Pad,,9B13,9C13,,,,9B13,9C13,,,Fast,
+PAD12_PadMode6+Shift,PAD12_PadMode6+Shift,Pad,,9B1B,9C1B,,,,9B1B,9C1B,,,Fast,
+PAD12_PadMode7,PAD12_PadMode7,Pad,,9B23,9C23,,,,9B23,9C23,,,Fast,
+PAD12_PadMode7+Shift,PAD12_PadMode7+Shift,Pad,,9B2B,9C2B,,,,9B2B,9C2B,,,Fast,
+PAD12_PadMode8,PAD12_PadMode8,Pad,,9B33,9C33,,,,9B33,9C33,,,Fast,
+PAD12_PadMode8+Shift,PAD12_PadMode8+Shift,Pad,,9B3B,9C3B,,,,9B3B,9C3B,,,Fast,
+,,,,,,,,,,,,,,
+PAD13_PadMode1,PAD13_PadMode1,Pad,,9D04,9E04,,,,9D04,9E04,,,Fast,
+PAD13_PadMode1+Shift,PAD13_PadMode1+Shift,Pad,,9D0C,9E0C,,,,9D0C,9E0C,,,Fast,
+PAD13_PadMode2,PAD13_PadMode2,Pad,,9D14,9E14,,,,9D14,9E14,,,Fast,
+PAD13_PadMode2+Shift,PAD13_PadMode2+Shift,Pad,,9D1C,9E1C,,,,9D1C,9E1C,,,Fast,
+PAD13_PadMode3,PAD13_PadMode3,Pad,,9D24,9E24,,,,9D24,9E24,,,Fast,
+PAD13_PadMode3+Shift,PAD13_PadMode3+Shift,Pad,,9D2C,9E2C,,,,9D2C,9E2C,,,Fast,
+PAD13_PadMode4,PAD13_PadMode4,Pad,,9D34,9E34,,,,9D34,9E34,,,Fast,
+PAD13_PadMode4+Shift,PAD13_PadMode4+Shift,Pad,,9D3C,9E3C,,,,9D3C,9E3C,,,Fast,
+PAD13_PadMode5,PAD13_PadMode5,Pad,,9B04,9C04,,,,9B04,9C04,,,Fast,
+PAD13_PadMode5+Shift,PAD13_PadMode5+Shift,Pad,,9B0C,9C0C,,,,9B0C,9C0C,,,Fast,
+PAD13_PadMode6,PAD13_PadMode6,Pad,,9B14,9C14,,,,9B14,9C14,,,Fast,
+PAD13_PadMode6+Shift,PAD13_PadMode6+Shift,Pad,,9B1C,9C1C,,,,9B1C,9C1C,,,Fast,
+PAD13_PadMode7,PAD13_PadMode7,Pad,,9B24,9C24,,,,9B24,9C24,,,Fast,
+PAD13_PadMode7+Shift,PAD13_PadMode7+Shift,Pad,,9B2C,9C2C,,,,9B2C,9C2C,,,Fast,
+PAD13_PadMode8,PAD13_PadMode8,Pad,,9B34,9C34,,,,9B34,9C34,,,Fast,
+PAD13_PadMode8+Shift,PAD13_PadMode8+Shift,Pad,,9B3C,9C3C,,,,9B3C,9C3C,,,Fast,
+,,,,,,,,,,,,,,
+PAD14_PadMode1,PAD14_PadMode1,Pad,,9D05,9E05,,,,9D05,9E05,,,Fast,
+PAD14_PadMode1+Shift,PAD14_PadMode1+Shift,Pad,,9D0D,9E0D,,,,9D0D,9E0D,,,Fast,
+PAD14_PadMode2,PAD14_PadMode2,Pad,,9D15,9E15,,,,9D15,9E15,,,Fast,
+PAD14_PadMode2+Shift,PAD14_PadMode2+Shift,Pad,,9D1D,9E1D,,,,9D1D,9E1D,,,Fast,
+PAD14_PadMode3,PAD14_PadMode3,Pad,,9D25,9E25,,,,9D25,9E25,,,Fast,
+PAD14_PadMode3+Shift,PAD14_PadMode3+Shift,Pad,,9D2D,9E2D,,,,9D2D,9E2D,,,Fast,
+PAD14_PadMode4,PAD14_PadMode4,Pad,,9D35,9E35,,,,9D35,9E35,,,Fast,
+PAD14_PadMode4+Shift,PAD14_PadMode4+Shift,Pad,,9D3D,9E3D,,,,9D3D,9E3D,,,Fast,
+PAD14_PadMode5,PAD14_PadMode5,Pad,,9B05,9C05,,,,9B05,9C05,,,Fast,
+PAD14_PadMode5+Shift,PAD14_PadMode5+Shift,Pad,,9B0D,9C0D,,,,9B0D,9C0D,,,Fast,
+PAD14_PadMode6,PAD14_PadMode6,Pad,,9B15,9C15,,,,9B15,9C15,,,Fast,
+PAD14_PadMode6+Shift,PAD14_PadMode6+Shift,Pad,,9B1D,9C1D,,,,9B1D,9C1D,,,Fast,
+PAD14_PadMode7,PAD14_PadMode7,Pad,,9B25,9C25,,,,9B25,9C25,,,Fast,
+PAD14_PadMode7+Shift,PAD14_PadMode7+Shift,Pad,,9B2D,9C2D,,,,9B2D,9C2D,,,Fast,
+PAD14_PadMode8,PAD14_PadMode8,Pad,,9B35,9C35,,,,9B35,9C35,,,Fast,
+PAD14_PadMode8+Shift,PAD14_PadMode8+Shift,Pad,,9B3D,9C3D,,,,9B3D,9C3D,,,Fast,
+,,,,,,,,,,,,,,
+PAD15_PadMode1,PAD15_PadMode1,Pad,,9D06,9E06,,,,9D06,9E06,,,Fast,
+PAD15_PadMode1+Shift,PAD15_PadMode1+Shift,Pad,,9D0E,9E0E,,,,9D0E,9E0E,,,Fast,
+PAD15_PadMode2,PAD15_PadMode2,Pad,,9D16,9E16,,,,9D16,9E16,,,Fast,
+PAD15_PadMode2+Shift,PAD15_PadMode2+Shift,Pad,,9D1E,9E1E,,,,9D1E,9E1E,,,Fast,
+PAD15_PadMode3,PAD15_PadMode3,Pad,,9D26,9E26,,,,9D26,9E26,,,Fast,
+PAD15_PadMode3+Shift,PAD15_PadMode3+Shift,Pad,,9D2E,9E2E,,,,9D2E,9E2E,,,Fast,
+PAD15_PadMode4,PAD15_PadMode4,Pad,,9D36,9E36,,,,9D36,9E36,,,Fast,
+PAD15_PadMode4+Shift,PAD15_PadMode4+Shift,Pad,,9D3E,9E3E,,,,9D3E,9E3E,,,Fast,
+PAD15_PadMode5,PAD15_PadMode5,Pad,,9B06,9C06,,,,9B06,9C06,,,Fast,
+PAD15_PadMode5+Shift,PAD15_PadMode5+Shift,Pad,,9B0E,9C0E,,,,9B0E,9C0E,,,Fast,
+PAD15_PadMode6,PAD15_PadMode6,Pad,,9B16,9C16,,,,9B16,9C16,,,Fast,
+PAD15_PadMode6+Shift,PAD15_PadMode6+Shift,Pad,,9B1E,9C1E,,,,9B1E,9C1E,,,Fast,
+PAD15_PadMode7,PAD15_PadMode7,Pad,,9B26,9C26,,,,9B26,9C26,,,Fast,
+PAD15_PadMode7+Shift,PAD15_PadMode7+Shift,Pad,,9B2E,9C2E,,,,9B2E,9C2E,,,Fast,
+PAD15_PadMode8,PAD15_PadMode8,Pad,,9B36,9C36,,,,9B36,9C36,,,Fast,
+PAD15_PadMode8+Shift,PAD15_PadMode8+Shift,Pad,,9B3E,9C3E,,,,9B3E,9C3E,,,Fast,
+,,,,,,,,,,,,,,
+PAD16_PadMode1,PAD16_PadMode1,Pad,,9D07,9E07,,,,9D07,9E07,,,Fast,
+PAD16_PadMode1+Shift,PAD16_PadMode1+Shift,Pad,,9D0F,9E0F,,,,9D0F,9E0F,,,Fast,
+PAD16_PadMode2,PAD16_PadMode2,Pad,,9D17,9E17,,,,9D17,9E17,,,Fast,
+PAD16_PadMode2+Shift,PAD16_PadMode2+Shift,Pad,,9D1F,9E1F,,,,9D1F,9E1F,,,Fast,
+PAD16_PadMode3,PAD16_PadMode3,Pad,,9D27,9E27,,,,9D27,9E27,,,Fast,
+PAD16_PadMode3+Shift,PAD16_PadMode3+Shift,Pad,,9D2F,9E2F,,,,9D2F,9E2F,,,Fast,
+PAD16_PadMode4,PAD16_PadMode4,Pad,,9D37,9E37,,,,9D37,9E37,,,Fast,
+PAD16_PadMode4+Shift,PAD16_PadMode4+Shift,Pad,,9D3F,9E3F,,,,9D3F,9E3F,,,Fast,
+PAD16_PadMode5,PAD16_PadMode5,Pad,,9B07,9C07,,,,9B07,9C07,,,Fast,
+PAD16_PadMode5+Shift,PAD16_PadMode5+Shift,Pad,,9B0F,9C0F,,,,9B0F,9C0F,,,Fast,
+PAD16_PadMode6,PAD16_PadMode6,Pad,,9B17,9C17,,,,9B17,9C17,,,Fast,
+PAD16_PadMode6+Shift,PAD16_PadMode6+Shift,Pad,,9B1F,9C1F,,,,9B1F,9C1F,,,Fast,
+PAD16_PadMode7,PAD16_PadMode7,Pad,,9B27,9C27,,,,9B27,9C27,,,Fast,
+PAD16_PadMode7+Shift,PAD16_PadMode7+Shift,Pad,,9B2F,9C2F,,,,9B2F,9C2F,,,Fast,
+PAD16_PadMode8,PAD16_PadMode8,Pad,,9B37,9C37,,,,9B37,9C37,,,Fast,
+PAD16_PadMode8+Shift,PAD16_PadMode8+Shift,Pad,,9B3F,9C3F,,,,9B3F,9C3F,,,Fast,
+,,,,,,,,,,,,,,
+Permission_PadMode1,Permission_PadMode1,Indicator,,,,,,9061,0,1,,,RO,Permission flag of PAGE change 01-A
+Permission_PadMode2,Permission_PadMode2,Indicator,,,,,,906A,0,1,,,RO,Permission flag of PAGE change 02-A
+Permission_PadMode3,Permission_PadMode3,Indicator,,,,,,906E,0,1,,,RO,Permission flag of PAGE change 03-A
+Permission_PadMode4,Permission_PadMode4,Indicator,,,,,,9075,0,1,,,RO,Permission flag of PAGE change 04-A
+Permission_PadMode5,Permission_PadMode5,Indicator,,,,,,9063,0,1,,,RO,Permission flag of PAGE change 01-B
+Permission_PadMode6,Permission_PadMode6,Indicator,,,,,,906C,0,1,,,RO,Permission flag of PAGE change 02-B
+Permission_PadMode7,Permission_PadMode7,Indicator,,,,,,9074,0,1,,,RO,Permission flag of PAGE change 03-B
+Permission_PadMode8,Permission_PadMode8,Indicator,,,,,,9076,0,1,,,RO,Permission flag of PAGE change 04-B
+,,,,,,,,,,,,,,
+SamplerVolume,SamplerVolume,KnobSliderHiRes,B603,,,,,,,,,,,Sampler Volume
+,,,,,,,,,,,,,,
+# GUI,,,,,,,,,,,,,,
+Sync,Sync,Button,9058,0,1,2,3,9058,0,1,2,3,Blink=600,Sync On/Off
+Master,Sync+Shift,Button,900A,0,1,2,3,900A,0,1,2,3,,Master On/Off
+MasterTempo,MasterTempo,Button,901A,0,1,2,3,901A,0,1,2,3,,MasterTempo On/Off
+PitchBendUp,PitchBendUp,Button,9021,0,1,2,3,9021,0,1,2,3,,
+PitchBendDown,PitchBendDown,Button,9023,0,1,2,3,9023,0,1,2,3,,
+NeedleSearch,NeedleSearch,Value,B043,0,1,2,3,,,,,,Max=16383,Needle Search slide(00-7f)
+JogScratch,JogScratch,JogRotate,B041,0,1,2,3,,,,,,RO,Scratch
+JogTouch,JogTouch,JogTouch,9036,0,1,2,3,,,,,,RO,Touch
+,,,,,,,,,,,,,,
+4BeatLoop,4BeatLoop,Button,9045,,,2,3,9045,,,2,3,Fast,Auto Loop On/Off
+Mute,Mute,Button,9065,0,1,2,3,9065,0,1,2,3,,Mute On/Off
+PlayPause,PlayPause,Button,900B,,,2,3,900B,,,2,3,Fast;Priority=50,Play/Pause
+PAD1_HotCue,,Pad,9000,,,9,10,9000,,,9,10,Fast,HOT CUE1
+PAD2_HotCue,,Pad,9001,,,9,10,9001,,,9,10,Fast,HOT CUE2
+PAD3_HotCue,,Pad,9002,,,9,10,9002,,,9,10,Fast,HOT CUE3
+PAD4_HotCue,,Pad,9003,,,9,10,9003,,,9,10,Fast,HOT CUE4
+PAD5_HotCue,,Pad,9004,,,9,10,9004,,,9,10,Fast,HOT CUE5
+PAD6_HotCue,,Pad,9005,,,9,10,9005,,,9,10,Fast,HOT CUE6
+PAD7_HotCue,,Pad,9006,,,9,10,9006,,,9,10,Fast,HOT CUE7
+PAD8_HotCue,,Pad,9007,,,9,10,9007,,,9,10,Fast,HOT CUE8
+ActiveLoop,,Button,900C,,,2,3,900C,,,2,3,,Loop Active/Non active
+TempoDecMedium,,Button,900D,,,2,3,900D,,,2,3,,
+TempoIncMedium,,Button,900E,,,2,3,900E,,,2,3,,
+,,,,,,,,,,,,,,
+DvsAbsRelInt,,Button,,964E,9652,,,,964E,9652,,,,
+MasterTempo,,Button,,964F,9653,,,,964F,9653,,,,
+SemitoneUp,,Button,,9650,9654,,,,9650,9654,,,,
+SemitoneDown,,Button,,9651,9655,,,,9651,9655,,,,
+,,,,,,,,,,,,,,
+Sync,,Button,,9656,965B,,,,9656,965B,,,,
+Master,,Button,,9657,965C,,,,9657,965C,,,,
+KeySync,,Button,,9658,965D,,,,9658,965D,,,,
+KeyReset,,Button,,9659,965E,,,,9659,965E,,,,
+Mute,,Button,,965A,965F,,,,965A,965F,,,,
+,,,,,,,,,,,,,,
+DvsAbsRelInt,,Button,,9660,9668,,,,9660,9668,,,,
+TempoCenter,,Button,,9661,9669,,,,9661,9669,,,,
+Sync,,Button,,9662,966A,,,,9662,966A,,,,
+PlayPause,,Button,,9663,966B,,,,9663,966B,,,Fast;Priority=50,
+Quantize4,,Button,9664,,,,,9664,,,,,,
+SwitchActiveWindow,,Button,9665,,,,,9665,,,,,,
+PanelForward,,Button,9666,,,,,9666,,,,,,
+Rec,,Button,9667,,,,,9667,,,,,,
+,,,,,,,,,,,,,,
+FX1-1,,KnobSlider,B650,,,,,B650,,,,,,
+FX1-1On,,Button,966C,,,,,966C,,,,,,
+FX1-1Select,,Button,966D,,,,,966D,,,,,,
+FX1-2,,KnobSlider,B651,,,,,B651,,,,,,
+FX1-2On,,Button,966E,,,,,966E,,,,,,
+FX1-2Select,,Button,966F,,,,,966F,,,,,,
+FX1-3,,KnobSlider,B652,,,,,B652,,,,,,
+FX1-3On,,Button,9670,,,,,9670,,,,,,
+FX1-3Select,,Button,9671,,,,,9671,,,,,,
+,,,,,,,,,,,,,,
+# Others,,,,,,,,,,,,,,
+BrowseLineNumber,,Value,9608,,,,,,,,,,RO,Browse line number (for BROWSE screen)
+ScrollBarControl,,Value,9614,,,,,9614,,,,,RO,SCROLL BAR Control
+SortType,,Value,960B,,,,,960B,,,,,RO,sort type
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=1,

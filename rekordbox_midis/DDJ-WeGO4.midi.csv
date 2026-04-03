@@ -1,0 +1,107 @@
+@file,1,DDJ-WeGO4
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+# Browser,,,,,,,,,,,,,,
+Browse,Browse,Rotary,B640,,,,,,,,,,,Browse
+,Browse+Shift,Rotary,B664,,,,,,,,,,,
+Forward,Browse+Press,Button,9641,,,,,,,,,,,Library Forwod (Folder Open)
+Back,Browse+Press+Shift,Button,9642,,,,,,,,,,,Library Back (Folder Close)
+Load,Load,Button,,9646,9647,,,,,,,,,Load to Deck / Instant Double (double click)
+SortBPM,Load1+Shift,Button,9658,,,,,,,,,,,Sort by BPM
+SortARTIST,Load2+Shift,Button,9659,,,,,,,,,,,Sort by ARTIST
+,,,,,,,,,,,,,,
+# Deck,,,,,,,,,,,,,,
+PlayPause,PlayPause,Button,900B,0,1,,,900B,0,1,,,Fast;Priority=50,PlayPause
+PlayPause,PlayPause+Shift,Button,9047,0,1,,,9047,0,1,,,Fast;Priority=50,Play/Pause
+Cue,Cue,Button,900C,0,1,,,900C,0,1,,,Fast;Priority=50,Cue Set/Play CueBack
+JumpToTrackStart,Cue+Shift,Button,9048,0,1,,,9048,0,1,,,Fast;Priority=50,Jump to track start
+,,,,,,,,,,,,,,
+#JogScratch,JogScratch,JogRotate,B022,0,1,,,,,,,,RO,Scratch
+#JogPitchBend,JogPitchBend,JogRotate,B023,0,1,,,,,,,,RO,Pitch Bend
+#JogSearch,JogSearch,Difference,B027,0,1,,,,,,,,RO,Search
+#JogTouch,JogTouch,JogTouch,9036,0,1,,,,,,,,RO,Touch
+#JogTouch,JogTouch+Shift,JogTouch,9067,0,1,,,,,,,,RO,Touch
+,,,,,,,,,,,,,,
+#WheelPitchBend,WheelPitchBend,JogRotate,B021,0,1,,,,,,,,RO,Pitch Bend
+#WheelSearch,WheelSearch,JogRotate,B026,0,1,,,,,,,,RO,Pitch Bend
+,,,,,,,,,,,,,,
+TempoSlider,TempoSlider,KnobSliderHiRes,B000,0,1,,,,,,,,Fast,Tempo Control
+TempoRange,HeadphoneCue+Shift,Button,,965C,965D,,,,965C,965D,,,,Tempo Range
+Sync,Sync,Button,9058,0,1,,,9058,0,1,,,Blink=600,Sync On
+Master,Sync+Shift,Button,905C,0,1,,,,,,,,,Master On/Off
+AutoLoop,AutoLoop,Button,9014,0,1,,,,,,,,,Auto Loop On/Off
+ReloopExit,LoopOut+Shift,Button,9052,0,1,,,,,,,,Fast,Reloop/Exit
+LoopHalf,LoopHalf,Button,9012,0,1,,,,,,,,Fast,Loop Size Select (Half)
+LoopIn,LoopIn,Button,9051,0,1,,,,,,,,Fast,Loop in/Loop in adjust
+LoopDouble,LoopDouble,Button,9013,0,1,,,,,,,,Fast,Loop Size Select (Double)
+LoopOut,LoopOut,Button,9050,0,1,,,,,,,,Fast,Loop out/Loop out adjust
+ShiftWeGO4,Shift,Button,964F,,,,,,,,,,RO,Shift
+,,,,,,,,,,,,,,
+# Mixer,,,,,,,,,,,,,,
+#CrossFader,CrossFader,KnobSliderHiRes,B61F,,,,,,,,,,Fast,Crossfader
+#ChannelFader,ChannelFader,KnobSliderHiRes,,B613,B615,,,,,,,,,ChannelFader A/B
+EQHigh,EQHigh,KnobSliderHiRes,,B607,B608,,,,,,,,Fast,EQ High
+EQMid,EQMid,KnobSliderHiRes,,B60B,B60C,,,,,,,,Fast,EQ Mid
+EQLow,EQLow,KnobSliderHiRes,,B60F,B610,,,,,,,,Fast,EQ Low
+HeadphoneCue,HeadphoneCue,Button,,9654,9655,,,,9654,9655,,,,Headphone CUE On/Off
+HeadphonesMix,,KnobSliderHiRes,B601,,,,,,,,,,,
+#MasterCue,MasterCue,Button,965B,,,,,965B,,,,,,Master CUE (All Headphone)
+,,,,,,,,,,,,,,
+# Effect,,,,,,,,,,,,,,
+PAD6_PadFx1,PAD6.PadFx1,Pad,,9443,9543,,,,9443,9543,,,,PAD FX1 Slot6 (momentary)
+PAD6_PadFx2,PAD6.PadFx2,Pad,,944D,954D,,,,944D,954D,,,,PAD FX2 Slot6 (momentary)
+,,,,,,,,,,,,,,
+PAD7_PadFx1,PAD7.PadFx1,Pad,,9444,9544,,,,9444,9544,,,,PAD FX1 Slot7 (momentary)
+PAD7_PadFx2,PAD7.PadFx2,Pad,,944E,954E,,,,944E,954E,,,,PAD FX2 Slot7 (momentary)
+,,,,,,,,,,,,,,
+PAD8_PadFx1,PAD8.PadFx1,Pad,,9445,9545,,,,9445,9545,,,,PAD FX1 Slot8 (momentary)
+PAD8_PadFx2,PAD8.PadFx2,Pad,,944F,954F,,,,944F,954F,,,,PAD FX2 Slot8 (momentary)
+,,,,,,,,,,,,,,
+# SoundColorFX,,,,,,,,,,,,,,
+CFXParameterCH1,CFXParameterCH1,KnobSliderHiRes,B617,,,,,,,,,,Fast,CH1 CFX Depth
+CFXParameterCH1Center,CFXParameterCH1Center,Button,9674,,,,,,,,,,Fast,CH1 CFX Depth
+CFXParameterCH2,CFXParameterCH2,KnobSliderHiRes,B618,,,,,,,,,,Fast,CH2 CFX Depth
+CFXParameterCH2Center,CFXParameterCH2Center,Button,9675,,,,,,,,,,Fast,CH2 CFX Depth
+,,,,,,,,,,,,,,
+# Performance,,,,,,,,,,,,,,
+PAD1_HotCue,PAD1.HotCue.Call,Pad,902E,0,1,,,902E,0,1,,,Fast,HOT CUE1
+PAD1_HotCue+Shift,PAD1.HotCue.Delete,Pad,905F,0,1,,,905F,0,1,,,Fast,Delete HOT CUE1
+PAD1_Sampler,PAD1.Sampler.Start,Pad,903C,0,1,,,903C,0,1,,,Fast,Sample Slot 1 play
+PAD1_Sampler+Shift,PAD1.Sampler.Stop,Pad,903D,0,1,,,903D,0,1,,,Fast,Sample Slot 1 stop
+,,,,,,,,,,,,,,
+PAD2_HotCue,PAD2.HotCue.Call,Pad,902F,0,1,,,902F,0,1,,,Fast,HOT CUE2
+PAD2_HotCue+Shift,PAD2.HotCue.Delete,Pad,9060,0,1,,,9060,0,1,,,Fast,Delete HOT CUE2
+PAD2_Sampler,PAD2.Sampler.Start,Pad,903E,0,1,,,903E,0,1,,,Fast,Sample Slot2 play
+PAD2_Sampler+Shift,PAD2.Sampler.Stop,Pad,903F,0,1,,,903F,0,1,,,Fast,Sample Slot2 stop
+,,,,,,,,,,,,,,
+PAD3_HotCue,PAD3.HotCue.Call,Pad,9030,0,1,,,9030,0,1,,,Fast,HOT CUE3
+PAD3_HotCue+Shift,PAD3.HotCue.Delete,Pad,9061,0,1,,,9061,0,1,,,Fast,Delete HOT CUE3
+PAD3_Sampler,PAD3.Sampler.Start,Pad,9040,0,1,,,9040,0,1,,,Fast,Sample Slot 3 play
+PAD3_Sampler+Shift,PAD3.Sampler.Stop,Pad,9041,0,1,,,9041,0,1,,,Fast,Sample Slot 3 stop
+,,,,,,,,,,,,,,
+PAD4_HotCue,PAD4.HotCue.Call,Pad,9031,0,1,,,9031,0,1,,,Fast,HOT CUE 4
+PAD4_HotCue+Shift,PAD4.HotCue.Delete,Pad,9062,0,1,,,9062,0,1,,,Fast,Delete HOT CUE 4
+PAD4_Sampler,PAD4.Sampler.Start,Pad,9042,0,1,,,9042,0,1,,,Fast,Sample Slot 4 play
+PAD4_Sampler+Shift,PAD4.Sampler.Stop,Pad,9043,0,1,,,9043,0,1,,,Fast,Sample Slot 4 stop
+,,,,,,,,,,,,,,
+HotCue,HotCueMode,Button,901B,0,1,,,,,,,,Fast,HOT CUE Mode On/Off
+PadFx1,PadFx1Mode,Button,901E,0,1,,,,,,,,Fast,PAD FX1 Mode On/Off
+PadFx2,PadFx2Mode,Button,906B,0,1,,,,,,,,Fast,PAD FX2 Mode On/Off
+Sampler,SamplerMode,Button,9022,0,1,,,,,,,,Fast,SAMPLER Mode On/Off
+,,,,,,,,,,,,,,
+#,HotCueSampler,Button,9059,0,1,,,,,,,,,
+,,,,,,,,,,,,,,
+# State,,,,,,,,,,,,,,
+PlayingState,PlayingState,Indicator,,,,,,,9B02,9B03,,,RO,Playing States of the left/right deck
+,,,,,,,,,,,,,,
+# illumination,,,,,,,,,,,,,,
+LoadedIndicator,LoadedIndicator,Indicator,,,,,,,9B0C,9B0D,,,RO;Priority=100,Trigger for Load illumination
+JogPlayPauseIndicatorShort,JogPlayPauseIndicatorShort,JogIndicator,,,,,,,B630,B631,,,RO;Min=1;Max=64;Priority=100,Playing States for the trigger for JOG illumination
+TriggerEndWarning,TriggerEndWarning,Indicator,,,,,,,9B04,9B05,,,RO;Priority=100,Trigger for ending illumination of playback
+GetLoopActive,GetLoopActive,Indicator,,,,,,,9B10,9B11,,,RO;Priority=100,get loop active
+IsolatorMode,IsolatorMode,Indicator,,,,,,9C7E,,,,,RO;Priority=300,
+,,,,,,,,,,,,,,
+# Parameter,,,,,,,,,,,,,,
+JogIndicatorInterval,JogIndicatorInterval,Parameter,FFF1,,,,,,,,,,Value=32,
+JogRatency,JogRatency,Parameter,FFF2,,,,,,,,,,Value=4,unused
+MidiOutInterval,MidiOutInterval,Parameter,FFF3,,,,,,,,,,Value=2,

@@ -1,0 +1,117 @@
+@file,1,PIONEER DJM-T1
+#name,function,type,input,deck1,deck2,deck3,deck4,output,deck1,deck2,deck3,deck4,option,comment
+,,,,,,,,,,,,,,
+# Browser,,,,,,,,,,,,,,
+Browse,Browse,Rotary,B000,,,,,,,,,,,Browse(Track/Folder Select)
+Zoom,Browse+Shift,Rotary,B040,,,,,,,,,,,
+Forward,Browse+Press,Button,9000,,,,,,,,,,,Library Forward (Folder Open)
+Back,Browse+Press+Shift,Button,9040,,,,,,,,,,,Library Back (Folder Close)
+Load,Load,Button,,9001,9002,,,,,,,,,Load to Deck / Instant Double (double click)
+SortBPM,Load1+Shift,Button,9041,,,,,,,,,,,Sort by BPM
+SortARTIST,Load2+Shift,Button,9042,,,,,,,,,,,Sort by ARTIST
+,,,,,,,,,,,,,,
+# Deck,,,,,,,,,,,,,,
+PlayPause,PlayPause,Button,,9003,9004,,,,9003,9004,,,Fast;Priority=50,Play/Pause
+PlayPause,PlayPause+Shift,Button,,9043,9044,,,,9043,9044,,,Fast;Priority=50,Play/Pause
+Cue,Cue,Button,,900B,900C,,,,900B,900C,,,Fast;Priority=50,Cue Set/Play Cue Back
+JumpToTrackStart,Cue+Shift,Button,,904B,904C,,,,904B,904C,,,Fast;Priority=50,Jump to track start
+,,,,,,,,,,,,,,
+Quantize4,Quantize,Button,9031,,,,,9031,,,,,,Quantize On/Off
+Sync,Sync,Button,,9005,9006,,,,9005,9006,,,Blink=600,Sync On/Off
+Master,Sync+Shift,Button,,9045,9046,,,,9045,9046,,,,Master On/Off
+AutoLoop,AutoLoop+Press,Button,,9015,9017,,,,,,,,,Auto Loop On/Off
+AutoLoop,AutoLoop+Press,Button,,9016,9018,,,,,,,,,Auto Loop On/Off
+ReloopExit,Active,Button,,902B,902D,,,,902B,902D,,,Fast,Reloop/Exit
+ReTrigger,Active+Shift,Button,,906B,906D,,,,906B,906D,,,Fast,RE-TRIGGER
+LoopHalfDouble,AutoLoop,Rotary,,B009,B00B,,,,,,,,Fast,Loop Size Select
+LoopHalfDouble,AutoLoop,Rotary,,B00A,B00C,,,,,,,,Fast,Loop Size Select
+LoopMove,AutoLoop+Shift,Rotary,,B049,B04B,,,,,,,,,Loop Move
+,,,,,,,,,,,,,,
+# Mixer,,,,,,,,,,,,,,
+CrossFader,CrossFader,KnobSlider,B018,,,,,,,,,,Fast,Crossfader
+CrossFader,CrossFader+Shift,KnobSlider,B058,,,,,,,,,,Fast,Crossfader
+ChannelFader,ChannelFader,KnobSlider,,B015,B016,,,,,,,,,CH Fader
+ChannelFader,ChannelFader+Shift,KnobSlider,,B055,B056,,,,,,,,,CH Fader
+#Gain,Gain,KnobSlider,,B00D,B00E,,,,,,,,Fast,Gain
+#Gain,Gain+Shift,KnobSlider,,B04D,B04E,,,,,,,,Fast,Gain
+#EQHigh,EQHigh,KnobSlider,,B00F,B010,,,,,,,,Fast,EQ High
+#EQHigh,EQHigh+Shift,KnobSlider,,B04F,B050,,,,,,,,Fast,EQ High
+#EQMid,EQMid,KnobSlider,,B011,B012,,,,,,,,Fast,EQ Mid
+#EQMid,EQMid+Shift,KnobSlider,,B051,B052,,,,,,,,Fast,EQ Mid
+#EQLow,EQLow,KnobSlider,,B013,B014,,,,,,,,Fast,EQ Low
+#EQLow,EQLow+Shift,KnobSlider,,B053,B054,,,,,,,,Fast,EQ Low
+#HeadphoneCue,HeadphoneCue,Button,,902F,9030,,,,902F,9030,,,,Headphone CUE On/Off
+#TapBpm,HeadphoneCue+Shift,Button,,906F,9070,,,,906F,9070,,,,TAP BPM
+,,,,,,,,,,,,,,
+# Effect,,,,,,,,,,,,,,
+FX1-1,FX1-1,KnobSlider,B003,,,,,,,,,,,FX1-1 Effect Depth
+FX1-1Select,FX1-1+Shift,KnobSlider,B043,,,,,,,,,,,FX1-1 Effect Depth
+FX1-1On,FX1-1On,Button,900F,,,,,900F,,,,,,FX1-1 Effect On/Off
+FX1-1Select,FX1-1On+Shift,Button,904F,,,,,904F,,,,,,FX select
+,,,,,,,,,,,,,,
+FX1-2,FX1-2,KnobSlider,B005,,,,,,,,,,,FX1-2 Effect Depth
+FX1-2Select,FX1-2+Shift,KnobSlider,B045,,,,,,,,,,,FX1-2 Effect Depth
+FX1-2On,FX1-2On,Button,9011,,,,,9011,,,,,,FX1-2 Effect On/Off
+FX1-2Select,FX1-2On+Shift,Button,9051,,,,,9051,,,,,,FX select/No function when single mode
+,,,,,,,,,,,,,,
+FX1-3,FX1-3,KnobSlider,B007,,,,,,,,,,,FX1-3 Effect Depth
+FX1-3Select,FX1-3+Shift,KnobSlider,B047,,,,,,,,,,,FX1-3 Effect Depth
+FX1-3On,FX1-3On,Button,9013,,,,,9013,,,,,,FX1-3 Effect On/Off
+FX1-3Select,FX1-3On+Shift,Button,9053,,,,,9053,,,,,,FX select/No function when single mode
+,,,,,,,,,,,,,,
+FX1BeatUpDown,FX1Beat,KnobSlider,B001,,,,,,,,,,,FX1 Effect beat down/up
+FX1TapBeatWithLongPress,FX1Tap,Button,900D,,,,,900D,,,,,,FX1 Effect tap beat
+FX1FXMode,FX1Tap+Shift,Button,904D,,,,,904D,,,,,,Select FX1 FX mode
+,,,,,,,,,,,,,,
+FX2-1,FX2-1,KnobSlider,B004,,,,,,,,,,,FX2-1 Effect Depth
+FX2-1Select,FX2-1+Shift,KnobSlider,B044,,,,,,,,,,,FX2-1 Effect Depth
+FX2-1On,FX2-1On,Button,9010,,,,,9010,,,,,,FX2-1 Effect On/Off
+FX2-1Select,FX2-1On+Shift,Button,9050,,,,,9050,,,,,,FX select
+,,,,,,,,,,,,,,
+FX2-2,FX2-2,KnobSlider,B006,,,,,,,,,,,FX2-2 Effect Depth
+FX2-2Select,FX2-2+Shift,KnobSlider,B046,,,,,,,,,,,FX2-2 Effect Depth
+FX2-2On,FX2-2On,Button,9012,,,,,9012,,,,,,FX2-2 Effect On/Off
+FX2-2Select,FX2-2On+Shift,Button,9052,,,,,9052,,,,,,FX select/No function when single mode
+,,,,,,,,,,,,,,
+FX2-3,FX2-3,KnobSlider,B008,,,,,,,,,,,FX2-3 Effect Depth
+FX2-3Select,FX2-3+Shift,KnobSlider,B048,,,,,,,,,,,FX2-3 Effect Depth
+FX2-3On,FX2-3On,Button,9014,,,,,9014,,,,,,FX2-3 Effect On/Off
+FX2-3Select,FX2-3On+Shift,Button,9054,,,,,9054,,,,,,FX select/No function when single mode
+,,,,,,,,,,,,,,
+FX2BeatUpDown,FX2Beat,KnobSlider,B002,,,,,,,,,,,FX2 Effect beat down/up
+FX2TapBeatWithLongPress,FX2Tap,Button,900E,,,,,900E,,,,,,FX2 Effect tap beat
+FX2FXMode,FX2Tap+Shift,Button,904E,,,,,904E,,,,,,Select FX2 FX mode
+,,,,,,,,,,,,,,
+FX1Assign1,FX1Assign1,Button,9007,,,,,9007,,,,,,FX1 On/Off
+FX2Assign1,FX2Assign1,Button,9009,,,,,9009,,,,,,FX2 On/Off
+,,,,,,,,,,,,,,
+FX1Assign2,FX1Assign2,Button,9008,,,,,9008,,,,,,FX1 On/Off
+FX2Assign2,FX2Assign2,Button,900A,,,,,900A,,,,,,FX2 On/Off
+,,,,,,,,,,,,,,
+# Performance,,,,,,,,,,,,,,
+PAD1_HotCue,PAD1.HotCue.Call,Pad,,901B,901D,,,,901B,901D,,,Fast,HOT CUE1
+PAD1_HotCue+Shift,PAD1.HotCue.Delete,Pad,,905B,905D,,,,905B,905D,,,Fast,Delete HOT CUE1
+PAD1_Sampler,PAD1.Sampler.Start,Pad,,901C,901E,,,,901C,901E,,,Fast,Sample Slot 1 play
+PAD1_Sampler+Shift,PAD1.Sampler.Stop,Pad,,905C,905E,,,,905C,905E,,,Fast,Sample Slot 1 stop
+,,,,,,,,,,,,,,
+PAD2_HotCue,PAD2.HotCue.Call,Pad,,901F,9021,,,,901F,9021,,,Fast,HOT CUE2
+PAD2_HotCue+Shift,PAD2.HotCue.Delete,Pad,,905F,9061,,,,905F,9061,,,Fast,Delete HOT CUE2
+PAD2_Sampler,PAD2.Sampler.Start,Pad,,9020,9022,,,,9020,9022,,,Fast,Sample Slot2 play
+PAD2_Sampler+Shift,PAD2.Sampler.Stop,Pad,,9060,9062,,,,9060,9062,,,Fast,Sample Slot2 stop
+,,,,,,,,,,,,,,
+PAD3_HotCue,PAD3.HotCue.Call,Pad,,9023,9025,,,,9023,9025,,,Fast,HOT CUE3
+PAD3_HotCue+Shift,PAD3.HotCue.Delete,Pad,,9063,9065,,,,9063,9065,,,Fast,Delete HOT CUE3
+PAD3_Sampler,PAD3.Sampler.Start,Pad,,9024,9026,,,,9024,9026,,,Fast,Sample Slot 3 play
+PAD3_Sampler+Shift,PAD3.Sampler.Stop,Pad,,9064,9066,,,,9064,9066,,,Fast,Sample Slot 3 stop
+,,,,,,,,,,,,,,
+PAD4_HotCue,PAD4.HotCue.Call,Pad,,9027,9029,,,,9027,9029,,,Fast,HOT CUE 4
+PAD4_HotCue+Shift,PAD4.HotCue.Delete,Pad,,9067,9069,,,,9067,9069,,,Fast,Delete HOT CUE 4
+PAD4_Sampler,PAD4.Sampler.Start,Pad,,9028,902A,,,,9028,902A,,,Fast,Sample Slot 4 play
+PAD4_Sampler+Shift,PAD4.Sampler.Stop,Pad,,9068,906A,,,,9068,906A,,,Fast,Sample Slot 4 stop
+,,,,,,,,,,,,,,
+SamplerVolume,AutoLoop+Shift,Rotary,B04A,,,,,,,,,,,Sampler Volume
+SamplerVolume,AutoLoop+Shift,Rotary,B04C,,,,,,,,,,,Sampler Volume
+SamplerSync,Active,Button,902C,,,,,902C,,,,,,Sync On/Off
+SamplerSync,Active,Button,902E,,,,,902E,,,,,,Sync On/Off
+SamplerMaster,Active+Shift,Button,906C,,,,,906C,,,,,,Master On/Off
+SamplerMaster,Active+Shift,Button,906E,,,,,906E,,,,,,Master On/Off
