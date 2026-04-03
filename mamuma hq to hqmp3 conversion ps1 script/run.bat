@@ -1,0 +1,1 @@
+./Convert-ToMp3.ps1 -InputFolder "H:\music\hq" -OutputFolder "D:\music\library" -OverwriteExisting -PreserveMetadata -DeleteAfter
